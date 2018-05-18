@@ -1,0 +1,14 @@
+package com.training.bankingTransaction.service;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.training.bankingTransaction.model.Bank;
+
+@Service
+public interface IBankService {
+
+	public Bank createBank(Bank bank);
+	
+	public ResponseEntity<Bank> getBankDetails(int bankId);
+}

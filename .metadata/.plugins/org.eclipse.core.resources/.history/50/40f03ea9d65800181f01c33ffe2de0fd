@@ -1,0 +1,9 @@
+package com.training.bankingTransaction.model;
+
+import java.math.BigDecimal;
+
+public class Bank {
+
+	private int bankId;
+	private BigDecimal amount;
+}

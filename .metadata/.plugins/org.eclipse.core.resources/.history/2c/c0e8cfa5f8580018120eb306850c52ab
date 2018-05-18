@@ -1,0 +1,12 @@
+package com.training.bankingTransaction.service;
+
+import java.util.Optional;
+
+import com.training.bankingTransaction.model.Bank;
+
+public interface IBankService {
+
+	public Bank createBank(Bank bank);
+
+	public Optional<Bank> getBankDetails(int bankId);
+}

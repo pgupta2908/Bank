@@ -1,0 +1,5 @@
+package com.training.bankingTransaction.model;
+
+public class ATM {
+
+}

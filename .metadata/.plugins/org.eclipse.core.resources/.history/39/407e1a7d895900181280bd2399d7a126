@@ -1,0 +1,42 @@
+package com.training.bankingTransaction.model;
+
+import java.math.BigDecimal;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Table(name="Bank")
+@Entity
+@Data
+public class Bank {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="bank_id")
+	private int bankId;
+	
+	@Column(name="amount")
+	private BigDecimal amount;
+	
+	@OneToMany(targetEntity=ATM.class)
+	@JoinColumn(name="bank_id")
+	private Set<ATM> atmSet;
+	
+	@OneToMany(targetEntity=Customer.class)
+	@JoinColumn(name="bank_id")
+	private Set<Customer> customerSet;
+	
+	@OneToMany(targetEntity=Account.class)
+	@JoinColumn(name="bank_id")
+	private Set<Account> accountSet;
+	
+}

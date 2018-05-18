@@ -1,0 +1,26 @@
+package com.training.bankingTransaction.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+
+import com.training.bankingTransaction.model.Bank;
+import com.training.bankingTransaction.repository.IBankRepository;
+
+public class BankServiceImpl implements IBankService {
+
+	@Autowired
+	IBankRepository bankRepo;
+
+	@Override
+	public Bank createBank(Bank bank) {
+		// TODO Auto-generated method stub
+		return bankRepo.save(bank);
+	}
+
+	@Override
+	public ResponseEntity<Bank> getBankDetails(int bankId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,6 @@
+package com.training.bankingTransaction.model;
+
+public class Bank {
+
+	private int bankId;
+}

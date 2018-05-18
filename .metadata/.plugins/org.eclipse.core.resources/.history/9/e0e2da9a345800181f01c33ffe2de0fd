@@ -1,0 +1,21 @@
+package com.training.bankingTransaction.service;
+
+import java.math.BigDecimal;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.training.bankingTransaction.model.Account;
+
+@Service
+public interface IAccountService {
+
+	public ResponseEntity<Account> createAccount();
+
+	public ResponseEntity<String> depositMoney(int receiverAccountId, int senderAccountId, BigDecimal amount);
+
+	public ResponseEntity<String> withdrawMoney(int accountId, BigDecimal amount);
+
+	public ResponseEntity<Account> getAccountDetails(int accountId);
+
+}

@@ -1,0 +1,22 @@
+package com.training.bankingTransaction.model;
+
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class ATM {
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="atm_id")
+	private int atmId;
+	
+	@Column(name="amount")
+	private BigDecimal amount;
+	
+	@Column(name="bank_id")
+	private int bankId;
+}

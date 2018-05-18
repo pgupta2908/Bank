@@ -1,0 +1,30 @@
+package com.training.bankingTransaction.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.training.bankingTransaction.model.Bank;
+import com.training.bankingTransaction.repository.IBankRepository;
+
+@Service
+public class BankServiceImpl implements IBankService {
+
+	@Autowired
+	IBankRepository bankRepo;
+
+	@Override
+	public Bank createBank(Bank bank) {
+
+		return bankRepo.save(bank);
+	}
+
+	@Override
+	public Optional<Bank> getBankDetails(int bankId) {
+
+		Optional<Bank> optional; 
+		optional = bankRepo.findById(bankId);
+		return optional;
+	}
+
+}

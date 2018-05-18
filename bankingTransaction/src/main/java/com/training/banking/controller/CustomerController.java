@@ -1,0 +1,36 @@
+package com.training.banking.controller;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.training.banking.model.Customer;
+import com.training.banking.service.ICustomerService;
+import com.training.banking.wrappers.CustomerWrapper;
+
+@RestController
+@RequestMapping(value = "/customer")
+public class CustomerController {
+
+	@Autowired
+	ICustomerService customerService;
+
+	@PostMapping(value = "/create")
+	public ResponseEntity<Customer> createCustomer(@RequestBody CustomerWrapper customerWrapper) {
+		Customer createdCustomer = customerService.createCustomer(customerWrapper);
+		return new ResponseEntity<Customer>(createdCustomer, HttpStatus.CREATED);
+	}
+
+	@GetMapping(value = "/getById")
+	public ResponseEntity<Optional<Customer>> getCustomerDetails(Integer customerId) {
+		Optional<Customer> customer = customerService.getCustomerDetails(customerId);
+		return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.FOUND);
+	}
+}

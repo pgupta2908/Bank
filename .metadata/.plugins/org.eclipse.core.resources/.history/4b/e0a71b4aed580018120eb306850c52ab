@@ -1,0 +1,22 @@
+package com.training.bankingTransaction.service;
+
+import org.springframework.http.ResponseEntity;
+
+import com.training.bankingTransaction.model.Bank;
+
+public class BankServiceImpl implements IBankService{
+
+	@Override
+	public ResponseEntity<Bank> createBank(Bank bank) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ResponseEntity<Bank> getBankDetails(int bankId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

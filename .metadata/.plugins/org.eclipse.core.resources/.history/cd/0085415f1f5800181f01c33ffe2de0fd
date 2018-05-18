@@ -1,0 +1,11 @@
+package com.training.bankingTransaction.model;
+
+import java.math.BigDecimal;
+
+public class ATM {
+
+	private int atmId;
+	private BigDecimal amount;
+	private int money;
+	private int bankId;
+}

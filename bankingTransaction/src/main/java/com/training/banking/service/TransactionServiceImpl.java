@@ -43,6 +43,7 @@ public class TransactionServiceImpl implements ITransactionService {
 	@Override
 	public Transaction createTransaction(Integer customerId, Integer accountId, BigDecimal amount,
 			String transactionType) {
+		
 		Transaction transaction = new Transaction();
 		transaction.setCustomerId(customerId);
 		transaction.setAccountId(accountId);

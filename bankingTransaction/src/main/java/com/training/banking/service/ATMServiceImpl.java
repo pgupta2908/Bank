@@ -27,6 +27,7 @@ public class ATMServiceImpl implements IATMService {
 
 	@Override
 	public ATM createATM(ATMWrapper atmWrapper) {
+		
 		Integer bankId = atmWrapper.getBankId();
 		Optional<Bank> bankPossible = bankRepo.findById(bankId);
 		Bank bank = bankPossible.get();
@@ -40,6 +41,7 @@ public class ATMServiceImpl implements IATMService {
 
 	@Override
 	public ATM addMoneyFromBank(Integer atmId, BigDecimal amount) {
+		
 		Optional<ATM> atmPossible = atmRepo.findById(atmId);
 		ATM atm = atmPossible.get();
 		BigDecimal atmInitialBalance = atm.getAmount();
@@ -59,6 +61,7 @@ public class ATMServiceImpl implements IATMService {
 
 	@Override
 	public ATM withdrawMoney(Integer atmId, BigDecimal amount) {
+		
 		Optional<ATM> atmPossible = atmRepo.findById(atmId);
 		ATM atm = atmPossible.get();
 		BigDecimal atmInitialBalance = atm.getAmount();

@@ -26,6 +26,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer createCustomer(CustomerWrapper customerWrapper) {
+		
 		Integer bankId = customerWrapper.getBankId();
 		Optional<Bank> bankPossible = bankRepo.findById(bankId);
 		Bank bank = bankPossible.get();

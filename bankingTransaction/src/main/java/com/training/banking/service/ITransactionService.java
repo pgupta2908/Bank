@@ -4,11 +4,12 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.training.banking.model.Transaction;
-import com.training.banking.wrappers.TransactionWrapper;
 
 public interface ITransactionService {
 
-	public Transaction createTransaction(TransactionWrapper transactionWrapper);
+	/*
+	 * public Transaction createTransaction(TransactionWrapper transactionWrapper);
+	 */
 
 	public Transaction createTransaction(Integer customerId, Integer accountId, BigDecimal amount, String transactionType);
 	

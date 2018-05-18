@@ -1,0 +1,81 @@
+
+######################################
+#				Bank				 #
+######################################
+	create
+	###################
+	{
+		"amount":0
+	}
+	
+	###################
+	getById
+	###################
+	localhost:8081/bank/getById?bankId=1
+
+######################################
+#				Customer			 #
+######################################
+	create
+	###################
+	{
+		"bankId":1,
+		"customer":{
+			"name":"Pratyush Gupta",
+			"pin":110087
+		}
+	}
+
+	###################
+	getById
+	###################
+	localhost:8081/customer/getById?customerId=3
+
+######################################
+#				Account				 #
+######################################
+	create
+	###################
+	{
+		"bankId":1,
+		"customerId":3,
+		"account":{
+			"amount":100
+		}
+	}
+	
+	###################
+	getById
+	###################
+	localhost:8081/account/getById?accountId=4
+
+	###################
+	withdraw
+	###################
+	localhost:8081/account/withdraw?accountId=4&amount=10
+	
+	###################
+	deposit
+	###################
+	localhost:8081/account/deposit?accountId=4&amount=10
+
+
+######################################
+#				ATM					 #
+######################################
+	create
+	###################
+	{
+		"bankId":1,
+		"atm":{
+			"amount":1000
+		}
+	}
+	###################
+	addMoney
+	###################
+	localhost:8081/atm/addMoney?atmId=5&amount=1000
+	###################
+	withdraw
+	###################
+	localhost:8081/atm/withdraw?atmId=5&amount=1000

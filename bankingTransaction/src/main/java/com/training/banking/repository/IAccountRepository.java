@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.training.banking.model.Account;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Repository
 public interface IAccountRepository extends JpaRepository<Account, Integer> {
 

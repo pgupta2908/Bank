@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.training.banking.model.Bank;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Repository
 public interface IBankRepository extends JpaRepository<Bank, Integer> {
 

@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import com.training.banking.model.Bank;
 import com.training.banking.repository.IBankRepository;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Service
 public class BankServiceImpl implements IBankService {
 

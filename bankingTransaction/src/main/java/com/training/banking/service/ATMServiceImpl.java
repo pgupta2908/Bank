@@ -12,6 +12,10 @@ import com.training.banking.repository.IATMRepository;
 import com.training.banking.repository.IBankRepository;
 import com.training.banking.wrappers.ATMWrapper;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Service
 public class ATMServiceImpl implements IATMService {
 

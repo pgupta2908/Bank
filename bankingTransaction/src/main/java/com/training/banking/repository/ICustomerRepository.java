@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.training.banking.model.Customer;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 

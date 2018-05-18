@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Table(name = "Customer")
 @Entity
 public class Customer {
@@ -26,34 +30,58 @@ public class Customer {
 	@ManyToOne(targetEntity = Bank.class)
 	private Bank bank;
 
+	/**
+	 * @return
+	 */
 	public Integer getCustomerId() {
 		return customerId;
 	}
 
+	/**
+	 * @param customerId
+	 */
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
 
+	/**
+	 * @return
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * @return
+	 */
 	public Integer getPin() {
 		return pin;
 	}
 
+	/**
+	 * @param pin
+	 */
 	public void setPin(Integer pin) {
 		this.pin = pin;
 	}
 
+	/**
+	 * @return
+	 */
 	public Bank getBank() {
 		return bank;
 	}
 
+	/**
+	 * @param bank
+	 */
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
@@ -62,6 +90,11 @@ public class Customer {
 		super();
 	}
 
+	/**
+	 * @param name
+	 * @param pin
+	 * @param bank
+	 */
 	public Customer(String name, Integer pin, Bank bank) {
 		super();
 		this.name = name;

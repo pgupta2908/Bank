@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name = "Transaction")
@@ -19,17 +18,17 @@ public class Transaction {
 	@Column(name = "transaction_id")
 	private Integer transactionId;
 
+	@Column(name = "customer_id")
+	private Integer customerId;
+
+	@Column(name = "accountId")
+	private Integer accountId;
+
 	@Column(name = "amount")
 	private BigDecimal amount;
 
 	@Column(name = "transaction_type")
 	private String transactionType;
-
-	@ManyToOne(targetEntity = Customer.class)
-	private Customer customer;
-
-	@ManyToOne(targetEntity = Account.class)
-	private Account account;
 
 	public Integer getTransactionId() {
 		return transactionId;
@@ -37,6 +36,22 @@ public class Transaction {
 
 	public void setTransactionId(Integer transactionId) {
 		this.transactionId = transactionId;
+	}
+
+	public Integer getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+
+	public Integer getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(Integer accountId) {
+		this.accountId = accountId;
 	}
 
 	public BigDecimal getAmount() {
@@ -55,41 +70,30 @@ public class Transaction {
 		this.transactionType = transactionType;
 	}
 
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
-	}
-
 	public Transaction() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Transaction(BigDecimal amount, String transactionType, Customer customer,
-			Account account) {
+	public Transaction(Integer transactionId, Integer customerId, Integer accountId, BigDecimal amount,
+			String transactionType) {
 		super();
+		this.transactionId = transactionId;
+		this.customerId = customerId;
+		this.accountId = accountId;
 		this.amount = amount;
 		this.transactionType = transactionType;
-		this.customer = customer;
-		this.account = account;
 	}
 
 	@Override
 	public String toString() {
-		return "Transaction [amount=" + amount + ", transactionType="
-				+ transactionType + ", customer=" + customer + ", account=" + account + "]";
+		return "Transaction [transactionId=" + transactionId + ", customerId=" + customerId + ", accountId=" + accountId
+				+ ", amount=" + amount + ", transactionType=" + transactionType + "]";
 	}
-	
+
+	/*
+	 * @ManyToOne(targetEntity = Customer.class) private Customer customer;
+	 * 
+	 * @ManyToOne(targetEntity = Account.class) private Account account;
+	 */
 
 }

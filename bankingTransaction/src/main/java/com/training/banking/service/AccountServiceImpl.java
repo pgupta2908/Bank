@@ -14,9 +14,16 @@ import com.training.banking.repository.IBankRepository;
 import com.training.banking.repository.ICustomerRepository;
 import com.training.banking.wrappers.AccountWrapper;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Service
 public class AccountServiceImpl implements IAccountService {
 
+	@Autowired
+	ITransactionService transactionService;
+	
 	@Autowired
 	IAccountRepository accountRepo;
 
@@ -61,7 +68,10 @@ public class AccountServiceImpl implements IAccountService {
 		BigDecimal bankUpdatedBalance = bankInitialBalance.add(amount);
 		bank.setAmount(bankUpdatedBalance);
 
+		transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount, "credit");
 		accountRepo.save(account);
+		
+		
 		return account;
 	}
 

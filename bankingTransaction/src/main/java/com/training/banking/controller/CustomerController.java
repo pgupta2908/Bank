@@ -15,6 +15,10 @@ import com.training.banking.model.Customer;
 import com.training.banking.service.ICustomerService;
 import com.training.banking.wrappers.CustomerWrapper;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @RestController
 @RequestMapping(value = "/customer")
 public class CustomerController {
@@ -22,12 +26,20 @@ public class CustomerController {
 	@Autowired
 	ICustomerService customerService;
 
+	/**
+	 * @param customerWrapper
+	 * @return
+	 */
 	@PostMapping(value = "/create")
 	public ResponseEntity<Customer> createCustomer(@RequestBody CustomerWrapper customerWrapper) {
 		Customer createdCustomer = customerService.createCustomer(customerWrapper);
 		return new ResponseEntity<Customer>(createdCustomer, HttpStatus.CREATED);
 	}
 
+	/**
+	 * @param customerId
+	 * @return
+	 */
 	@GetMapping(value = "/getById")
 	public ResponseEntity<Optional<Customer>> getCustomerDetails(Integer customerId) {
 		Optional<Customer> customer = customerService.getCustomerDetails(customerId);

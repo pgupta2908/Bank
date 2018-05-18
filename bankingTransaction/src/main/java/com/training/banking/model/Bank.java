@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Table(name = "Bank")
 @Entity
 public class Bank {
@@ -21,18 +25,30 @@ public class Bank {
 	@Column(name = "amount")
 	private BigDecimal amount;
 
+	/**
+	 * @return
+	 */
 	public Integer getBankId() {
 		return bankId;
 	}
 
+	/**
+	 * @param bankId
+	 */
 	public void setBankId(Integer bankId) {
 		this.bankId = bankId;
 	}
 
+	/**
+	 * @return
+	 */
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
+	/**
+	 * @param amount
+	 */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
@@ -41,10 +57,17 @@ public class Bank {
 		super();
 	}
 
+	/**
+	 * @param amount
+	 */
 	public Bank(BigDecimal amount) {
 		this.amount = amount;
 	}
 
+	/**
+	 * @param bankId
+	 * @param amount
+	 */
 	public Bank(Integer bankId, BigDecimal amount) {
 		super();
 		this.bankId = bankId;

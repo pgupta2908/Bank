@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.training.banking.model.Bank;
 import com.training.banking.service.IBankService;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @RestController
 @RequestMapping(value = "/bank")
 public class BankController {
@@ -22,12 +26,20 @@ public class BankController {
 	@Autowired
 	IBankService bankService;
 
+	/**
+	 * @param bank
+	 * @return
+	 */
 	@PostMapping(value = "/create")
 	public ResponseEntity<Bank> createBank(@RequestBody Bank bank) {
 		Bank createdBank = bankService.createBank(bank);
 		return new ResponseEntity<Bank>(createdBank, HttpStatus.CREATED);
 	}
 
+	/**
+	 * @param bankId
+	 * @return
+	 */
 	@GetMapping(value = "/getById")
 	public ResponseEntity<Optional<Bank>> getBankDetails(@RequestParam Integer bankId) {
 		Optional<Bank> bank = bankService.getBankDetails(bankId);

@@ -10,6 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Table(name = "Account")
 @Entity
 public class Account {
@@ -28,34 +32,58 @@ public class Account {
 	@ManyToOne(targetEntity = Bank.class)
 	private Bank bank;
 
+	/**
+	 * @return
+	 */
 	public Integer getAccountId() {
 		return accountId;
 	}
 
+	/**
+	 * @param accountId
+	 */
 	public void setAccountId(Integer accountId) {
 		this.accountId = accountId;
 	}
 
+	/**
+	 * @return
+	 */
 	public BigDecimal getAmount() {
 		return amount;
 	}
 
+	/**
+	 * @param amount
+	 */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 
+	/**
+	 * @return
+	 */
 	public Customer getCustomer() {
 		return customer;
 	}
 
+	/**
+	 * @param customer
+	 */
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
+	/**
+	 * @return
+	 */
 	public Bank getBank() {
 		return bank;
 	}
 
+	/**
+	 * @param bank
+	 */
 	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
@@ -64,6 +92,11 @@ public class Account {
 		super();
 	}
 
+	/**
+	 * @param amount
+	 * @param customer
+	 * @param bank
+	 */
 	public Account(BigDecimal amount, Customer customer, Bank bank) {
 		super();
 		this.amount = amount;

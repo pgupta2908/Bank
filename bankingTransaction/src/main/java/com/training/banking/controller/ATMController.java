@@ -16,6 +16,10 @@ import com.training.banking.model.ATM;
 import com.training.banking.service.IATMService;
 import com.training.banking.wrappers.ATMWrapper;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @RestController
 @RequestMapping(value = "/atm")
 public class ATMController {
@@ -23,18 +27,32 @@ public class ATMController {
 	@Autowired
 	IATMService atmService;
 
+	/**
+	 * @param atmWrapper
+	 * @return
+	 */
 	@PostMapping(value = "/create")
 	public ResponseEntity<ATM> createATM(@RequestBody ATMWrapper atmWrapper) {
 		ATM createdAtm = atmService.createATM(atmWrapper);
 		return new ResponseEntity<ATM>(createdAtm, HttpStatus.CREATED);
 	}
 
+	/**
+	 * @param atmId
+	 * @param amount
+	 * @return
+	 */
 	@GetMapping(value = "/addMoney")
 	public ResponseEntity<ATM> addMoneyFromBank(@RequestParam Integer atmId, @RequestParam BigDecimal amount) {
 		ATM updatedAtm = atmService.addMoneyFromBank(atmId, amount);
 		return new ResponseEntity<ATM>(updatedAtm, HttpStatus.ACCEPTED);
 	}
 
+	/**
+	 * @param atmId
+	 * @param amount
+	 * @return
+	 */
 	@GetMapping(value = "/withdraw")
 	public ResponseEntity<ATM> withdrawMoney(@RequestParam Integer atmId, @RequestParam BigDecimal amount) {
 		ATM updatedAtm = atmService.withdrawMoney(atmId, amount);

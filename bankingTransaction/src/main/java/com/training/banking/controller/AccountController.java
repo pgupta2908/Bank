@@ -50,7 +50,10 @@ public class AccountController {
 	@GetMapping(value = "/deposit")
 	public ResponseEntity<Account> depositMoney(@RequestParam Integer accountId, @RequestParam BigDecimal amount) {
 		Account updatedAccount = accountService.depositMoney(accountId, amount);
-		return new ResponseEntity<Account>(updatedAccount, HttpStatus.ACCEPTED);
+		if (updatedAccount != null)
+			return new ResponseEntity<Account>(updatedAccount, HttpStatus.ACCEPTED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 	}
 
 	/**
@@ -61,7 +64,10 @@ public class AccountController {
 	@GetMapping(value = "/withdraw")
 	public ResponseEntity<Account> withdrawMoney(@RequestParam Integer accountId, @RequestParam BigDecimal amount) {
 		Account updatedAccount = accountService.withdrawMoney(accountId, amount);
-		return new ResponseEntity<Account>(updatedAccount, HttpStatus.ACCEPTED);
+		if (updatedAccount != null)
+			return new ResponseEntity<Account>(updatedAccount, HttpStatus.ACCEPTED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 	}
 
 	/**
@@ -71,7 +77,10 @@ public class AccountController {
 	@GetMapping(value = "/getById")
 	public ResponseEntity<Optional<Account>> getAccountDetails(@RequestParam Integer accountId) {
 		Optional<Account> account = accountService.getAccountDetails(accountId);
-		return new ResponseEntity<Optional<Account>>(account, HttpStatus.FOUND);
+		if (account != null)
+			return new ResponseEntity<Optional<Account>>(account, HttpStatus.FOUND);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 }

@@ -42,13 +42,12 @@ public class CustomerServiceImpl implements ICustomerService {
 		try {
 
 			// check for null value of customer wrapper object
-			if (customerWrapper == null) {
+			if (customerWrapper.equals(null)) {
 				log.error("customer wrapper object passed is null");
 				throw new CreationException(env.getProperty("creation01"));
 			}
 
-			// check for null and negative value of bank id and null value of customer
-			// object
+			// check for null and negative value of bank id and null value of customer object
 			else if (customerWrapper.getBankId() <= 0 || customerWrapper.getCustomer().equals(null)) {
 				log.error("BankId is null or negative or customer object is null");
 				throw new CreationException("Please ensure positive values for bankId and null customer");

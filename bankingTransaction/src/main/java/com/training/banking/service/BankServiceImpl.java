@@ -36,7 +36,7 @@ public class BankServiceImpl implements IBankService {
 
 		try {
 			// check for null value of bank object
-			if (bank == null) {
+			if (bank.equals(null)) {
 				log.error("null object of bank");
 				throw new CreationException(env.getProperty("creation01"));
 			}

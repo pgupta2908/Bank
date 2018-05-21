@@ -13,6 +13,10 @@ import com.training.banking.repository.IAccountRepository;
 import com.training.banking.repository.ICustomerRepository;
 import com.training.banking.repository.ITransactionRepository;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Service
 public class TransactionServiceImpl implements ITransactionService {
 
@@ -45,7 +49,7 @@ public class TransactionServiceImpl implements ITransactionService {
 	@Override
 	public Transaction createTransaction(Integer customerId, Integer accountId, BigDecimal amount,
 			String transactionType) {
-		
+
 		Transaction transaction = new Transaction();
 		transaction.setCustomerId(customerId);
 		transaction.setAccountId(accountId);
@@ -59,7 +63,7 @@ public class TransactionServiceImpl implements ITransactionService {
 	@Override
 	public List<Transaction> generateTransactionReport(Integer customerId, Integer accountId) {
 		System.out.println("---------------------------------------");
-		Optional<Transaction> transactionList = transactionRepo.findById(customerId);/*findAllById(customerId);*/
+		Optional<Transaction> transactionList = transactionRepo.findById(customerId);/* findAllById(customerId); */
 		Transaction transaction = transactionList.get();
 		System.out.println(transaction);
 		List<Transaction> list = new ArrayList<>();

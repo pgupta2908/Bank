@@ -9,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Table(name = "Transaction")
 @Entity
 public class Transaction {
@@ -30,18 +34,30 @@ public class Transaction {
 	@Column(name = "transaction_type")
 	private String transactionType;
 
+	/**
+	 * @return
+	 */
 	public Integer getTransactionId() {
 		return transactionId;
 	}
 
+	/**
+	 * @param transactionId
+	 */
 	public void setTransactionId(Integer transactionId) {
 		this.transactionId = transactionId;
 	}
 
+	/**
+	 * @return
+	 */
 	public Integer getCustomerId() {
 		return customerId;
 	}
 
+	/**
+	 * @param customerId
+	 */
 	public void setCustomerId(Integer customerId) {
 		this.customerId = customerId;
 	}
@@ -50,6 +66,9 @@ public class Transaction {
 		return accountId;
 	}
 
+	/**
+	 * @param accountId
+	 */
 	public void setAccountId(Integer accountId) {
 		this.accountId = accountId;
 	}
@@ -58,6 +77,9 @@ public class Transaction {
 		return amount;
 	}
 
+	/**
+	 * @param amount
+	 */
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
@@ -66,6 +88,9 @@ public class Transaction {
 		return transactionType;
 	}
 
+	/**
+	 * @param transactionType
+	 */
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
 	}
@@ -74,6 +99,13 @@ public class Transaction {
 		super();
 	}
 
+	/**
+	 * @param transactionId
+	 * @param customerId
+	 * @param accountId
+	 * @param amount
+	 * @param transactionType
+	 */
 	public Transaction(Integer transactionId, Integer customerId, Integer accountId, BigDecimal amount,
 			String transactionType) {
 		super();
@@ -89,11 +121,5 @@ public class Transaction {
 		return "Transaction [transactionId=" + transactionId + ", customerId=" + customerId + ", accountId=" + accountId
 				+ ", amount=" + amount + ", transactionType=" + transactionType + "]";
 	}
-
-	/*
-	 * @ManyToOne(targetEntity = Customer.class) private Customer customer;
-	 * 
-	 * @ManyToOne(targetEntity = Account.class) private Account account;
-	 */
 
 }

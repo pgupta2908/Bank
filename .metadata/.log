@@ -10645,3 +10645,9 @@ Was expecting one of:
 	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:180)
 	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:95)
 	... 28 more
+
+!ENTRY org.eclipse.jface.text 2 0 2018-05-21 10:34:14.287
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-05-21 10:34:14.288
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'

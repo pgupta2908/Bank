@@ -5,6 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import com.training.banking.model.Transaction;
 
+/**
+ * @author Pratyush Gupta
+ *
+ */
 @Repository
 public interface ITransactionRepository extends JpaRepository<Transaction, Integer> {
 

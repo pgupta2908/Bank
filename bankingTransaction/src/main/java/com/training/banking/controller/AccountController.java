@@ -35,7 +35,11 @@ public class AccountController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<Account> createAccount(@RequestBody AccountWrapper accountWrapper) {
 		Account createdAccount = accountService.createAccount(accountWrapper);
-		return new ResponseEntity<Account>(createdAccount, HttpStatus.CREATED);
+		
+		if(createdAccount != null)
+			return new ResponseEntity<Account>(createdAccount, HttpStatus.CREATED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 
 	/**

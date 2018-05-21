@@ -33,7 +33,11 @@ public class BankController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<Bank> createBank(@RequestBody Bank bank) {
 		Bank createdBank = bankService.createBank(bank);
-		return new ResponseEntity<Bank>(createdBank, HttpStatus.CREATED);
+
+		if (createdBank != null)
+			return new ResponseEntity<Bank>(createdBank, HttpStatus.CREATED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 
 	/**
@@ -43,6 +47,10 @@ public class BankController {
 	@GetMapping(value = "/getById")
 	public ResponseEntity<Optional<Bank>> getBankDetails(@RequestParam Integer bankId) {
 		Optional<Bank> bank = bankService.getBankDetails(bankId);
-		return new ResponseEntity<Optional<Bank>>(bank, HttpStatus.FOUND);
+
+		if (bank != null)
+			return new ResponseEntity<Optional<Bank>>(bank, HttpStatus.FOUND);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 }

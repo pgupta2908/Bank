@@ -33,7 +33,11 @@ public class CustomerController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<Customer> createCustomer(@RequestBody CustomerWrapper customerWrapper) {
 		Customer createdCustomer = customerService.createCustomer(customerWrapper);
-		return new ResponseEntity<Customer>(createdCustomer, HttpStatus.CREATED);
+
+		if (createdCustomer != null)
+			return new ResponseEntity<Customer>(createdCustomer, HttpStatus.CREATED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 
 	/**
@@ -43,6 +47,10 @@ public class CustomerController {
 	@GetMapping(value = "/getById")
 	public ResponseEntity<Optional<Customer>> getCustomerDetails(Integer customerId) {
 		Optional<Customer> customer = customerService.getCustomerDetails(customerId);
-		return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.FOUND);
+		
+		if (customer != null)
+			return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.FOUND);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 }

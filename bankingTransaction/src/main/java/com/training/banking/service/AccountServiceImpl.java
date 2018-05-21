@@ -95,6 +95,7 @@ public class AccountServiceImpl implements IAccountService {
 		BigDecimal bankUpdatedBalance = bankInitialBalance.subtract(amount);
 		bank.setAmount(bankUpdatedBalance);
 
+		transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount, "debit");
 		accountRepo.save(account);
 		return account;
 	}

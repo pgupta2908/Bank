@@ -1,7 +1,9 @@
 package com.training.banking.service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,7 +58,13 @@ public class TransactionServiceImpl implements ITransactionService {
 
 	@Override
 	public List<Transaction> generateTransactionReport(Integer customerId, Integer accountId) {
-		return null;
+		System.out.println("---------------------------------------");
+		Optional<Transaction> transactionList = transactionRepo.findById(customerId);/*findAllById(customerId);*/
+		Transaction transaction = transactionList.get();
+		System.out.println(transaction);
+		List<Transaction> list = new ArrayList<>();
+		list.add(transaction);
+		return list;
 
 		// return transactionList;
 	}

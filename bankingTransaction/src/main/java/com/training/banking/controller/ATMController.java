@@ -34,7 +34,11 @@ public class ATMController {
 	@PostMapping(value = "/create")
 	public ResponseEntity<ATM> createATM(@RequestBody ATMWrapper atmWrapper) {
 		ATM createdAtm = atmService.createATM(atmWrapper);
-		return new ResponseEntity<ATM>(createdAtm, HttpStatus.CREATED);
+
+		if (createdAtm != null)
+			return new ResponseEntity<ATM>(createdAtm, HttpStatus.CREATED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 	}
 
 	/**
@@ -45,7 +49,11 @@ public class ATMController {
 	@GetMapping(value = "/addMoney")
 	public ResponseEntity<ATM> addMoneyFromBank(@RequestParam Integer atmId, @RequestParam BigDecimal amount) {
 		ATM updatedAtm = atmService.addMoneyFromBank(atmId, amount);
-		return new ResponseEntity<ATM>(updatedAtm, HttpStatus.ACCEPTED);
+
+		if (updatedAtm != null)
+			return new ResponseEntity<ATM>(updatedAtm, HttpStatus.ACCEPTED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 	}
 
 	/**
@@ -56,6 +64,9 @@ public class ATMController {
 	@GetMapping(value = "/withdraw")
 	public ResponseEntity<ATM> withdrawMoney(@RequestParam Integer atmId, @RequestParam BigDecimal amount) {
 		ATM updatedAtm = atmService.withdrawMoney(atmId, amount);
-		return new ResponseEntity<ATM>(updatedAtm, HttpStatus.ACCEPTED);
+		if (updatedAtm != null)
+			return new ResponseEntity<ATM>(updatedAtm, HttpStatus.ACCEPTED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 	}
 }

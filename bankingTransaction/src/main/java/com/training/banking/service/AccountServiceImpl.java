@@ -9,7 +9,9 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.training.banking.exception.CreationException;
+import com.training.banking.exception.LowBalanceException;
 import com.training.banking.exception.NotFoundException;
+import com.training.banking.exception.NullOrNegativeValuesException;
 import com.training.banking.model.Account;
 import com.training.banking.model.Bank;
 import com.training.banking.model.Customer;
@@ -49,19 +51,28 @@ public class AccountServiceImpl implements IAccountService {
 	public Account createAccount(AccountWrapper accountWrapper) {
 
 		try {
-
 			// check for null value of accountWrapper object
 			if (accountWrapper.equals(null)) {
-				log.error("account wrapper object passed is null");
-				throw new CreationException(env.getProperty("creation01"));
+				log.error(env.getProperty("nullObject"));
+				throw new NullOrNegativeValuesException("Please check for not null value of AccountWrapper");
 			}
 
 			// check for null or negative value of bank id, customer id and null value of
 			// account object
 			else if (accountWrapper.getBankId() <= 0 || accountWrapper.getCustomerId() <= 0
 					|| accountWrapper.getAccount().equals(null)) {
-				log.error("bankId and customerId is null or negative and account object is n null");
-				throw new CreationException("Please ensure positive values for bankId, customerId and null customer");
+				log.error(env.getProperty("nullOrNegativeValues"));
+				throw new NullOrNegativeValuesException(
+						"Please check for positive values for bankId, customerId and not null customer");
+			}
+
+			// check for already existing account
+			if (accountWrapper.getAccount().getAccountId() != null) {
+				Optional<Account> accountPossible = accountRepo.findById(accountWrapper.getAccount().getAccountId());
+				if (accountPossible.isPresent()) {
+					log.error(env.getProperty("alreadyExists"));
+					throw new CreationException("account object already exists");
+				}
 			}
 
 			else {
@@ -72,8 +83,8 @@ public class AccountServiceImpl implements IAccountService {
 
 				// check for presence of bank object
 				if (bankPresence == false) {
-					log.error("bank object does not exist");
-					throw new CreationException("bank does not exist with corresponding bank id");
+					log.error(env.getProperty("nullObject"));
+					throw new NotFoundException("bank does not exist with corresponding bank id");
 				}
 
 				Integer customerId = accountWrapper.getCustomerId();
@@ -83,78 +94,181 @@ public class AccountServiceImpl implements IAccountService {
 
 				// check for presence of customer object
 				if (customerPresence == false) {
-					log.error("customer object does not exist");
-					throw new CreationException("customer does not exist with corresponding customer id");
+					log.error(env.getProperty("nullObject"));
+					throw new NotFoundException("customer does not exist with corresponding customer id");
 				}
 
 				else {
-					log.info("bank object is present");
 					Bank bank = bankPossible.get();
-					Customer customer = customerPossible.get();
+					log.info("bank object is present");
 
+					Customer customer = customerPossible.get();
 					log.info("customer object is present");
+
 					Account account = accountWrapper.getAccount();
 					account.setBank(bank);
 					account.setCustomer(customer);
 
-					accountRepo.save(account);
-					return account;
+					BigDecimal bankBalance = bank.getAmount().add(account.getAmount());
+					bank.setAmount(bankBalance);
+
+					log.info("Account created successfully");
+					return accountRepo.save(account);
 				}
 
 			}
 		} catch (CreationException e) {
-			log.error(e.getMessage());
+			log.error("Account Creation Exception " + e.getMessage());
+			return null;
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Account Creation Exception " + e.getMessage());
+			return null;
+		} catch (NotFoundException e) {
+			log.error("Account Creation Exception " + e.getMessage());
+			return null;
+		}
+		return null;
+	}
+
+	/*
+	 * method to deposit money to an account
+	 */
+	@Override
+	public Account depositMoney(Integer accountId, BigDecimal amount) {
+
+		try {
+			// check for null or negative values of accountId and amount
+			if (accountId <= 0 || amount.compareTo(new BigDecimal(0)) == -1) {
+				log.error(env.getProperty("NullOrNegativeValues"));
+				throw new NullOrNegativeValuesException("Please check for positive values of account Id and amont");
+			}
+
+			Optional<Account> accountPossible = accountRepo.findById(accountId);
+			boolean accountPresence = accountPossible.isPresent();
+
+			// check for presence of account object
+			if (accountPresence == false) {
+				log.error(env.getProperty("notFound"));
+				throw new NotFoundException("account does not exist with the corresponding account Id");
+			}
+
+			else {
+				Account account = accountPossible.get();
+				BigDecimal accountInitialBalance = account.getAmount();
+
+				Integer bankId = account.getBank().getBankId();
+
+				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				boolean bankPresence = bankPossible.isPresent();
+
+				// check for presence of bank object
+				if (bankPresence == false) {
+					log.error(env.getProperty("nullObject"));
+					throw new NotFoundException("bank does not exist with corresponding id");
+				}
+
+				Bank bank = bankPossible.get();
+
+				BigDecimal accountUpdatedBalance = accountInitialBalance.add(amount);
+				account.setAmount(accountUpdatedBalance);
+
+				BigDecimal bankInitialBalance = bank.getAmount();
+				BigDecimal bankUpdatedBalance = bankInitialBalance.add(amount);
+				bank.setAmount(bankUpdatedBalance);
+
+				transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount,
+						"credit");
+				log.info("amount depositted succussfully");
+				accountRepo.save(account);
+
+				return account;
+			}
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Account deposit Exception " + e.getMessage());
+			return null;
+		} catch (NotFoundException e) {
+			log.error("Account deposit Exception " + e.getMessage());
 			return null;
 		}
 	}
 
-	@Override
-	public Account depositMoney(Integer accountId, BigDecimal amount) {
-
-		Optional<Account> accountPossible = accountRepo.findById(accountId);
-
-		Account account = accountPossible.get();
-		BigDecimal accountInitialBalance = account.getAmount();
-		BigDecimal accountUpdatedBalance = accountInitialBalance.add(amount);
-		account.setAmount(accountUpdatedBalance);
-
-		Integer bankId = account.getBank().getBankId();
-
-		Optional<Bank> bankPossible = bankRepo.findById(bankId);
-		Bank bank = bankPossible.get();
-		BigDecimal bankInitialBalance = bank.getAmount();
-		BigDecimal bankUpdatedBalance = bankInitialBalance.add(amount);
-		bank.setAmount(bankUpdatedBalance);
-
-		transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount, "credit");
-		accountRepo.save(account);
-
-		return account;
-	}
-
+	/*
+	 * method to withdraw money from an account
+	 */
 	@Override
 	public Account withdrawMoney(Integer accountId, BigDecimal amount) {
+		try {
+			// check for null or negative values of accountId and amount
+			if (accountId <= 0 || amount.compareTo(new BigDecimal(0)) == -1) {
+				log.error(env.getProperty("NullOrNegativeValues"));
+				throw new NullOrNegativeValuesException("Please check for positive values of account Id and amont");
+			}
 
-		Optional<Account> accountPossible = accountRepo.findById(accountId);
+			Optional<Account> accountPossible = accountRepo.findById(accountId);
+			boolean accountPresence = accountPossible.isPresent();
 
-		Account account = accountPossible.get();
-		BigDecimal accountInitialBalance = account.getAmount();
-		BigDecimal accountUpdatedBalance = accountInitialBalance.subtract(amount);
-		account.setAmount(accountUpdatedBalance);
+			// check for presence of account object
+			if (accountPresence == false) {
+				log.error(env.getProperty("notFound"));
+				throw new NotFoundException("account does not exist with corresponding accountId");
+			}
 
-		Integer bankId = account.getBank().getBankId();
+			else {
+				Account account = accountPossible.get();
+				BigDecimal accountInitialBalance = account.getAmount();
 
-		Optional<Bank> bankPossible = bankRepo.findById(bankId);
-		Bank bank = bankPossible.get();
-		BigDecimal bankInitialBalance = bank.getAmount();
-		BigDecimal bankUpdatedBalance = bankInitialBalance.subtract(amount);
-		bank.setAmount(bankUpdatedBalance);
+				// check for presence of balance in account to be withdrawn
+				if (accountInitialBalance.compareTo(amount) == -1) {
+					log.error(env.getProperty("lowBalance"));
+					throw new LowBalanceException("The account does not have enough funds");
+				}
 
-		transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount, "debit");
-		accountRepo.save(account);
-		return account;
+				Integer bankId = account.getBank().getBankId();
+
+				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				boolean bankPresence = bankPossible.isPresent();
+
+				// check for presence of bank object
+				if (bankPresence == false) {
+					log.error(env.getProperty("nullObject"));
+					throw new NotFoundException("bank does not exist with id " + bankId);
+				}
+
+				Bank bank = bankPossible.get();
+				BigDecimal bankInitialBalance = bank.getAmount();
+
+				// check for presence of balance in bank to be withdrawn
+				if (bankInitialBalance.compareTo(amount) == -1) {
+					log.error(env.getProperty("lowBalance"));
+					throw new LowBalanceException("The bank does not have enough funds");
+				}
+
+				BigDecimal accountUpdatedBalance = accountInitialBalance.subtract(amount);
+				account.setAmount(accountUpdatedBalance);
+
+				BigDecimal bankUpdatedBalance = bankInitialBalance.subtract(amount);
+				bank.setAmount(bankUpdatedBalance);
+
+				transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount, "debit");
+				log.info("withdraw from account successful");
+				accountRepo.save(account);
+				return account;
+			}
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Account withdraw Exception " + e.getMessage());
+			return null;
+		} catch (NotFoundException e) {
+			log.error("Account withdraw Exception " + e.getMessage());
+			return null;
+		} catch (LowBalanceException e) {
+			log.error("Account withdraw Exception " + e.getMessage());
+			return null;
+		}
 	}
 
+	/*
+	 * method to get account details of an account
+	 */
 	@Override
 	public Optional<Account> getAccountDetails(Integer accountId) {
 		try {
@@ -164,22 +278,26 @@ public class AccountServiceImpl implements IAccountService {
 
 			// check for null and negative value of accountId
 			if (accountId <= 0) {
-				log.error("negative or null values for accountId is entered");
-				throw new NotFoundException("Please enter positive value only");
+				log.error(env.getProperty("nullOrNegativeValues"));
+				throw new NullOrNegativeValuesException("Please check for positive value of account Id");
 			}
 
 			// check if account exists or not
 			if (accountPresence == false) {
-				log.error("No account exists with accountId " + accountId);
-				throw new NotFoundException("Please enter an existing account id");
+				log.error(env.getProperty("notFound"));
+				throw new NotFoundException("Account does not exist for the corresponding customer Id");
 			}
 
 			// when everything is correct
 			else {
+				log.info("account found with customerId " + accountId);
 				return accountRepo.findById(accountId);
 			}
 		} catch (NotFoundException e) {
-			log.error(e.getMessage());
+			log.error("Account get Details Exception " + e.getMessage());
+			return null;
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Customer get Details Exception " + e.getMessage());
 			return null;
 		}
 	}

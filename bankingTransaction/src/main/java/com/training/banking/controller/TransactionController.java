@@ -33,6 +33,9 @@ public class TransactionController {
 	public ResponseEntity<List<Transaction>> generateTransactionReport(@RequestParam Integer customerId,
 			@RequestParam Integer accountId) {
 		List<Transaction> transactionList = transactionService.generateTransactionReport(customerId, accountId);
-		return new ResponseEntity<List<Transaction>>(transactionList, HttpStatus.FOUND);
+		if (transactionList.equals(null))
+			return new ResponseEntity<List<Transaction>>(transactionList, HttpStatus.FOUND);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 }

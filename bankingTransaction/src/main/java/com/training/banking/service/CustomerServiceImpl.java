@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.training.banking.exception.CreationException;
 import com.training.banking.exception.NotFoundException;
+import com.training.banking.exception.NullOrNegativeValuesException;
 import com.training.banking.model.Bank;
 import com.training.banking.model.Customer;
 import com.training.banking.repository.IBankRepository;
@@ -43,14 +44,26 @@ public class CustomerServiceImpl implements ICustomerService {
 
 			// check for null value of customer wrapper object
 			if (customerWrapper.equals(null)) {
-				log.error("customer wrapper object passed is null");
-				throw new CreationException(env.getProperty("creation01"));
+				log.error(env.getProperty("nullObject"));
+				throw new NullOrNegativeValuesException("Please check for customerWrapper for not null");
 			}
 
-			// check for null and negative value of bank id and null value of customer object
+			// check for null and negative value of bank id and null value of customer
+			// object
 			else if (customerWrapper.getBankId() <= 0 || customerWrapper.getCustomer().equals(null)) {
-				log.error("BankId is null or negative or customer object is null");
-				throw new CreationException("Please ensure positive values for bankId and null customer");
+				log.error(env.getProperty("nullOrNegativeValues"));
+				throw new NullOrNegativeValuesException(
+						"Please check for positive values for bankId and null customer");
+			}
+
+			// check for already existing customer
+			if (customerWrapper.getCustomer().getCustomerId() != null) {
+				Optional<Customer> customerPossible = customerRepo
+						.findById(customerWrapper.getCustomer().getCustomerId());
+				if (customerPossible.isPresent()) {
+					log.error(env.getProperty("alreadyExists"));
+					throw new CreationException("customer object already exists");
+				}
 			}
 
 			else {
@@ -61,28 +74,38 @@ public class CustomerServiceImpl implements ICustomerService {
 
 				// check for presence of bank object
 				if (bankPresence == false) {
-					log.error("bank object does not exist");
-					throw new CreationException("bank does not exist with corresponding bank id");
+					log.error(env.getProperty("nullObject"));
+					throw new NotFoundException("bank does not exist with corresponding bank id");
 				}
 
 				// when everything is correct
 				else {
-					log.info("bank object is present");
 					Bank bank = bankPossible.get();
+					log.info("bank object is present");
 					Customer customer = customerWrapper.getCustomer();
 					customer.setBank(bank);
 
-					customerRepo.save(customer);
-
-					return customer;
+					log.info("Customer created successfully");
+					return customerRepo.save(customer);
 				}
 			}
+
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Customer Creation Exception " + e.getMessage());
+			return null;
+		} catch (NotFoundException e) {
+			log.error("Customer Creation Exception " + e.getMessage());
+			return null;
 		} catch (CreationException e) {
-			log.error(e.getMessage());
+			log.error("Customer Creation Exception " + e.getMessage());
 			return null;
 		}
+		return null;
 	}
 
+	/*
+	 * method to get details of a customer
+	 */
 	@Override
 	public Optional<Customer> getCustomerDetails(Integer customerId) {
 
@@ -93,14 +116,14 @@ public class CustomerServiceImpl implements ICustomerService {
 
 			// check for null and negative value of customerId
 			if (customerId <= 0) {
-				log.error("negative or null values for customerId is entered");
-				throw new NotFoundException("Please enter positive value only");
+				log.error(env.getProperty("nullOrNegativeValues"));
+				throw new NullOrNegativeValuesException("Please check for positive value of customer Id");
 			}
 
 			// check if the customer exists or not
 			if (customerPresence == false) {
-				log.error("No customer exists with customerId " + customerId);
-				throw new NotFoundException("Please enter an existing customerId");
+				log.error(env.getProperty("notFound"));
+				throw new NotFoundException("Customer does not exist for the corresponding customer Id");
 			}
 
 			// when everything is correct
@@ -109,7 +132,10 @@ public class CustomerServiceImpl implements ICustomerService {
 				return customerRepo.findById(customerId);
 			}
 		} catch (NotFoundException e) {
-			log.error(e.getMessage());
+			log.error("Customer get Details Exception " + e.getMessage());
+			return null;
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Customer get Details Exception " + e.getMessage());
 			return null;
 		}
 	}

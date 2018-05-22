@@ -79,3 +79,13 @@
 	withdraw
 	###################
 	localhost:8081/atm/withdraw?atmId=5&amount=1000
+	
+	
+######################################
+#			 Transaction			 #
+######################################
+	getReport
+	###################
+	localhost:8081/transaction/getReport?customerId=6&accountId=6
+	###################
+	

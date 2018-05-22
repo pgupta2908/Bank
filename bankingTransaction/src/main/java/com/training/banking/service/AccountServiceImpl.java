@@ -177,7 +177,7 @@ public class AccountServiceImpl implements IAccountService {
 				bank.setAmount(bankUpdatedBalance);
 
 				transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount,
-						"credit");
+						env.getProperty("cr"));
 				log.info("amount depositted succussfully");
 				accountRepo.save(account);
 
@@ -249,7 +249,8 @@ public class AccountServiceImpl implements IAccountService {
 				BigDecimal bankUpdatedBalance = bankInitialBalance.subtract(amount);
 				bank.setAmount(bankUpdatedBalance);
 
-				transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount, "debit");
+				transactionService.createTransaction(account.getCustomer().getCustomerId(), accountId, amount,
+						env.getProperty("dr"));
 				log.info("withdraw from account successful");
 				accountRepo.save(account);
 				return account;

@@ -2,12 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
-		<item value="true" key="casesensitive"/>
+		<item value="System" key="selection"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="system"/>
+			<item value="debit"/>
+			<item value="System.out.println"/>
+			<item value="bankPresesnce"/>
+			<item value="customer"/>
+			<item value="Customer"/>
+			<item value="e.printStackTrace();"/>
+			<item value="&#x09;&#x09;&#x09;e.printStackTrace();"/>
 			<item value="println"/>
 			<item value="trainee"/>
 			<item value="Pratyush"/>
@@ -15,16 +23,12 @@
 			<item value="bank"/>
 			<item value="Bank"/>
 			<item value="ank"/>
-			<item value="int "/>
-			<item value="int"/>
-			<item value="(&quot;"/>
-			<item value="&lt;Customer&gt;"/>
-			<item value="Customer "/>
-			<item value="Customer"/>
-			<item value="bankid"/>
-			<item value="lomb"/>
 		</list>
 		<list key="replacehistory">
+			<item value="bankPresence"/>
+			<item value="atm"/>
+			<item value="ATM"/>
+			<item value="log.error(e.getMessage());"/>
 			<item value="Pratyush Gupta"/>
 			<item value="Pratyush"/>
 			<item value="Pratyush Gupta "/>
@@ -36,9 +40,6 @@
 			<item value="Integer "/>
 			<item value="Integer"/>
 			<item value="(value = &quot;"/>
-			<item value="&lt;CustomerWrapper&gt;"/>
-			<item value="CustomerWrapper"/>
-			<item value="bank"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

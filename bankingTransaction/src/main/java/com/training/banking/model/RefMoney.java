@@ -1,37 +1,38 @@
 package com.training.banking.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.ElementCollection;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "ref_money")
 public class RefMoney {
 
-	@ElementCollection
-	private List<Integer> denominationList = new ArrayList<Integer>();
+	@Id
+	@Column(name = "denomination")
+	private Integer denomination;
 
-	public List<Integer> getDenominationList() {
-		return denominationList;
+	public Integer getDenomination() {
+		return denomination;
 	}
 
-	public void setDenominationList(List<Integer> denominationList) {
-		this.denominationList = denominationList;
+	public void setDenomination(Integer denomination) {
+		this.denomination = denomination;
 	}
 
 	public RefMoney() {
 		super();
 	}
 
-	public RefMoney(List<Integer> denominationList) {
+	public RefMoney(Integer denomination) {
 		super();
-		this.denominationList = denominationList;
+		this.denomination = denomination;
 	}
 
 	@Override
 	public String toString() {
-		return "RefMoney [denominationList=" + denominationList + "]";
+		return "RefMoney [denomination=" + denomination + "]";
 	}
 
 }

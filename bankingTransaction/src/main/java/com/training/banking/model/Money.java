@@ -1,4 +1,4 @@
-package com.training.banking.model;
+/*package com.training.banking.model;
 
 import java.math.BigDecimal;
 
@@ -69,3 +69,4 @@ public class Money {
 	}
 
 }
+*/

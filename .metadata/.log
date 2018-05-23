@@ -1230,3 +1230,640 @@ Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to
 	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
 	at java.security.cert.CertPathBuilder.build(Unknown Source)
 	... 30 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 14:34:13.040
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 15:34:13.629
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 16:34:14.291
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 17:34:17.126
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 18:34:18.058
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 19:34:18.504
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY ch.acanda.eclipse.pmd.core 1 0 2018-05-23 20:00:39.286
+!MESSAGE RuleSetsCache: loading rule sets for project auditLog
+
+!ENTRY ch.acanda.eclipse.pmd.core 1 0 2018-05-23 20:00:46.818
+!MESSAGE Invalidating cache for auditLog
+
+!ENTRY ch.acanda.eclipse.pmd.core 1 0 2018-05-23 20:00:47.022
+!MESSAGE RuleSetsCache: loading rule sets for project auditLog
+
+!ENTRY ch.acanda.eclipse.pmd.core 1 0 2018-05-23 20:02:42.865
+!MESSAGE Could not run PMD because of incorrect syntax of file C:/Users/trainee/Documents/workspace-sts-3.9.4.RELEASE/auditLog/src/main/java/com/training/auditLogger/controller/AuditLogController.java
+!STACK 0
+net.sourceforge.pmd.PMDException: Error while parsing AuditLogController.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:98)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.runPMD(Analyzer.java:79)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.analyze(Analyzer.java:65)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.analyze(PMDBuilder.java:79)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder$ResourceVisitor.visit(PMDBuilder.java:126)
+	at org.eclipse.core.internal.resources.Resource$2.visit(Resource.java:120)
+	at org.eclipse.core.internal.resources.Resource$1.visitElement(Resource.java:84)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:82)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.doIteration(ElementTreeIterator.java:87)
+	at org.eclipse.core.internal.watson.ElementTreeIterator.iterate(ElementTreeIterator.java:129)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:94)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:52)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:117)
+	at org.eclipse.core.internal.resources.Resource.accept(Resource.java:105)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.fullBuild(PMDBuilder.java:65)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.build(PMDBuilder.java:51)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: net.sourceforge.pmd.lang.java.ast.ParseException: Encountered " "}" "} "" at line 25, column 1.
+Was expecting:
+    "(" ...
+    
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.generateParseException(JavaParser.java:11691)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.jj_consume_token(JavaParser.java:11575)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.FormalParameters(JavaParser.java:1696)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.MethodDeclarator(JavaParser.java:1653)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.MethodDeclaration(JavaParser.java:1598)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceBodyDeclaration(JavaParser.java:1234)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceBody(JavaParser.java:1189)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceDeclaration(JavaParser.java:645)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.TypeDeclaration(JavaParser.java:534)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.CompilationUnit(JavaParser.java:271)
+	at net.sourceforge.pmd.lang.java.AbstractJavaParser.parse(AbstractJavaParser.java:57)
+	at net.sourceforge.pmd.SourceCodeProcessor.parse(SourceCodeProcessor.java:110)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:180)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:95)
+	... 34 more
+
+!ENTRY ch.acanda.eclipse.pmd.core 1 0 2018-05-23 20:12:42.560
+!MESSAGE Could not run PMD because of incorrect syntax of file C:/Users/trainee/Documents/workspace-sts-3.9.4.RELEASE/auditLog/src/main/java/com/training/audit/service/AuditLogServiceImpl.java
+!STACK 0
+net.sourceforge.pmd.PMDException: Error while parsing AuditLogServiceImpl.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:98)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.runPMD(Analyzer.java:79)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.analyze(Analyzer.java:65)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.analyze(PMDBuilder.java:79)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder$DeltaVisitor.visit(PMDBuilder.java:103)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.incrementalBuild(PMDBuilder.java:72)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.build(PMDBuilder.java:57)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.resources.Workspace.buildInternal(Workspace.java:487)
+	at org.eclipse.core.internal.resources.Workspace.build(Workspace.java:399)
+	at org.eclipse.ui.actions.GlobalBuildAction$1.run(GlobalBuildAction.java:177)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: net.sourceforge.pmd.lang.java.ast.ParseException: Encountered " "}" "} "" at line 31, column 17.
+Was expecting one of:
+    <IDENTIFIER> ...
+    "@" ...
+    
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.generateParseException(JavaParser.java:11691)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.jj_consume_token(JavaParser.java:11575)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.AllocationExpression(JavaParser.java:4499)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.PrimaryPrefix(JavaParser.java:3906)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.PrimaryExpression(JavaParser.java:3719)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.PostfixExpression(JavaParser.java:3581)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.UnaryExpressionNotPlusMinus(JavaParser.java:3543)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.UnaryExpression(JavaParser.java:3396)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.MultiplicativeExpression(JavaParser.java:3290)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.AdditiveExpression(JavaParser.java:3237)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ShiftExpression(JavaParser.java:3182)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.RelationalExpression(JavaParser.java:3121)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.InstanceOfExpression(JavaParser.java:3085)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.EqualityExpression(JavaParser.java:3032)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.AndExpression(JavaParser.java:2992)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ExclusiveOrExpression(JavaParser.java:2952)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.InclusiveOrExpression(JavaParser.java:2912)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ConditionalAndExpression(JavaParser.java:2872)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ConditionalOrExpression(JavaParser.java:2832)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ConditionalExpression(JavaParser.java:2793)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Expression(JavaParser.java:2652)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ThrowStatement(JavaParser.java:5679)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Statement(JavaParser.java:4693)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.BlockStatement(JavaParser.java:4819)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Block(JavaParser.java:4777)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Statement(JavaParser.java:4636)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.IfStatement(JavaParser.java:5133)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Statement(JavaParser.java:4672)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.BlockStatement(JavaParser.java:4819)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Block(JavaParser.java:4777)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.MethodDeclaration(JavaParser.java:1610)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceBodyDeclaration(JavaParser.java:1234)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceBody(JavaParser.java:1189)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceDeclaration(JavaParser.java:645)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.TypeDeclaration(JavaParser.java:534)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.CompilationUnit(JavaParser.java:271)
+	at net.sourceforge.pmd.lang.java.AbstractJavaParser.parse(AbstractJavaParser.java:57)
+	at net.sourceforge.pmd.SourceCodeProcessor.parse(SourceCodeProcessor.java:110)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:180)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:95)
+	... 29 more
+
+!ENTRY ch.acanda.eclipse.pmd.core 2 0 2018-05-23 20:28:25.797
+!MESSAGE Could not run PMD on file C:/Users/trainee/Documents/workspace-sts-3.9.4.RELEASE/auditLog/src/main/java/com/training/audit/service/AuditLogServiceImpl.java
+!STACK 0
+net.sourceforge.pmd.PMDException: Error while processing AuditLogServiceImpl.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:101)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.runPMD(Analyzer.java:79)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.analyze(Analyzer.java:65)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.analyze(PMDBuilder.java:79)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder$DeltaVisitor.visit(PMDBuilder.java:103)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.incrementalBuild(PMDBuilder.java:72)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.build(PMDBuilder.java:57)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at net.sourceforge.pmd.lang.java.rule.multithreading.DoubleCheckedLockingRule.visit(DoubleCheckedLockingRule.java:110)
+	at net.sourceforge.pmd.lang.java.ast.ASTMethodDeclaration.jjtAccept(ASTMethodDeclaration.java:33)
+	at net.sourceforge.pmd.lang.java.ast.AbstractJavaNode.childrenAccept(AbstractJavaNode.java:56)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:83)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:120)
+	at net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceBodyDeclaration.jjtAccept(ASTClassOrInterfaceBodyDeclaration.java:41)
+	at net.sourceforge.pmd.lang.java.ast.AbstractJavaNode.childrenAccept(AbstractJavaNode.java:56)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:83)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:116)
+	at net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceBody.jjtAccept(ASTClassOrInterfaceBody.java:21)
+	at net.sourceforge.pmd.lang.java.ast.AbstractJavaNode.childrenAccept(AbstractJavaNode.java:56)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:83)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:92)
+	at net.sourceforge.pmd.lang.java.rule.multithreading.DoubleCheckedLockingRule.visit(DoubleCheckedLockingRule.java:68)
+	at net.sourceforge.pmd.lang.java.ast.ASTClassOrInterfaceDeclaration.jjtAccept(ASTClassOrInterfaceDeclaration.java:55)
+	at net.sourceforge.pmd.lang.java.ast.AbstractJavaNode.childrenAccept(AbstractJavaNode.java:56)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:83)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:232)
+	at net.sourceforge.pmd.lang.java.ast.ASTTypeDeclaration.jjtAccept(ASTTypeDeclaration.java:35)
+	at net.sourceforge.pmd.lang.java.ast.AbstractJavaNode.childrenAccept(AbstractJavaNode.java:56)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:83)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visit(AbstractJavaRule.java:212)
+	at net.sourceforge.pmd.lang.java.rule.multithreading.DoubleCheckedLockingRule.visit(DoubleCheckedLockingRule.java:78)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.visitAll(AbstractJavaRule.java:39)
+	at net.sourceforge.pmd.lang.java.rule.AbstractJavaRule.apply(AbstractJavaRule.java:27)
+	at net.sourceforge.pmd.lang.rule.AbstractDelegateRule.apply(AbstractDelegateRule.java:321)
+	at net.sourceforge.pmd.lang.rule.AbstractDelegateRule.apply(AbstractDelegateRule.java:321)
+	at net.sourceforge.pmd.RuleSet.apply(RuleSet.java:500)
+	at net.sourceforge.pmd.RuleSets.apply(RuleSets.java:143)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:189)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:95)
+	... 28 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2018-05-23 20:34:18.948
+!MESSAGE Connection to https://spring.io/blog.atom failed on sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retry attempt 0 started
+!STACK 0
+javax.net.ssl.SSLHandshakeException: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.ssl.Alerts.getSSLException(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.fatal(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.Handshaker.fatalSE(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.serverCertificate(Unknown Source)
+	at sun.security.ssl.ClientHandshaker.processMessage(Unknown Source)
+	at sun.security.ssl.Handshaker.processLoop(Unknown Source)
+	at sun.security.ssl.Handshaker.process_record(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+	at sun.security.ssl.SSLSocketImpl.writeRecord(Unknown Source)
+	at sun.security.ssl.AppOutputStream.write(Unknown Source)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flushBuffer(AbstractSessionOutputBuffer.java:157)
+	at org.apache.http.impl.io.AbstractSessionOutputBuffer.flush(AbstractSessionOutputBuffer.java:164)
+	at org.apache.http.impl.AbstractHttpClientConnection.doFlush(AbstractHttpClientConnection.java:270)
+	at org.apache.http.impl.AbstractHttpClientConnection.flush(AbstractHttpClientConnection.java:275)
+	at org.apache.http.impl.conn.AbstractClientConnAdapter.flush(AbstractClientConnAdapter.java:207)
+	at org.apache.http.protocol.HttpRequestExecutor.doSendRequest(HttpRequestExecutor.java:241)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:123)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryExecute(DefaultRequestDirector.java:686)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:488)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1084)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:1075)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:1071)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.validator.PKIXValidator.doBuild(Unknown Source)
+	at sun.security.validator.PKIXValidator.engineValidate(Unknown Source)
+	at sun.security.validator.Validator.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.validate(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkTrusted(Unknown Source)
+	at sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(Unknown Source)
+	... 24 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+	at sun.security.provider.certpath.SunCertPathBuilder.build(Unknown Source)
+	at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(Unknown Source)
+	at java.security.cert.CertPathBuilder.build(Unknown Source)
+	... 30 more
+
+!ENTRY ch.acanda.eclipse.pmd.core 1 0 2018-05-23 20:39:42.222
+!MESSAGE Could not run PMD because of incorrect syntax of file C:/Users/trainee/Documents/workspace-sts-3.9.4.RELEASE/auditLog/src/main/java/com/training/audit/service/AuditLogServiceImpl.java
+!STACK 0
+net.sourceforge.pmd.PMDException: Error while parsing AuditLogServiceImpl.java
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:98)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.runPMD(Analyzer.java:79)
+	at ch.acanda.eclipse.pmd.builder.Analyzer.analyze(Analyzer.java:65)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.analyze(PMDBuilder.java:79)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder$DeltaVisitor.visit(PMDBuilder.java:103)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:64)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:75)
+	at org.eclipse.core.internal.events.ResourceDelta.accept(ResourceDelta.java:48)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.incrementalBuild(PMDBuilder.java:72)
+	at ch.acanda.eclipse.pmd.builder.PMDBuilder.build(PMDBuilder.java:57)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:735)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:206)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:246)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:301)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:304)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:360)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:383)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:142)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:232)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Caused by: net.sourceforge.pmd.lang.java.ast.ParseException: Encountered " ")" ") "" at line 119, column 49.
+Was expecting one of:
+    "boolean" ...
+    "break" ...
+    "byte" ...
+    "char" ...
+    "continue" ...
+    "do" ...
+    "double" ...
+    "false" ...
+    "float" ...
+    "for" ...
+    "if" ...
+    "int" ...
+    "long" ...
+    "new" ...
+    "null" ...
+    "return" ...
+    "short" ...
+    "super" ...
+    "switch" ...
+    "synchronized" ...
+    "this" ...
+    "throw" ...
+    "true" ...
+    "try" ...
+    "void" ...
+    "while" ...
+    <INTEGER_LITERAL> ...
+    <FLOATING_POINT_LITERAL> ...
+    <HEX_FLOATING_POINT_LITERAL> ...
+    <CHARACTER_LITERAL> ...
+    <STRING_LITERAL> ...
+    <IDENTIFIER> ...
+    "(" ...
+    "{" ...
+    ";" ...
+    "++" ...
+    "--" ...
+    <IDENTIFIER> ...
+    
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.generateParseException(JavaParser.java:11691)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.jj_consume_token(JavaParser.java:11575)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Statement(JavaParser.java:4703)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.IfStatement(JavaParser.java:5133)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Statement(JavaParser.java:4672)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.BlockStatement(JavaParser.java:4819)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Block(JavaParser.java:4777)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.TryStatement(JavaParser.java:5753)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Statement(JavaParser.java:4699)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.BlockStatement(JavaParser.java:4819)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.Block(JavaParser.java:4777)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.MethodDeclaration(JavaParser.java:1610)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceBodyDeclaration(JavaParser.java:1234)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceBody(JavaParser.java:1189)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.ClassOrInterfaceDeclaration(JavaParser.java:645)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.TypeDeclaration(JavaParser.java:534)
+	at net.sourceforge.pmd.lang.java.ast.JavaParser.CompilationUnit(JavaParser.java:271)
+	at net.sourceforge.pmd.lang.java.AbstractJavaParser.parse(AbstractJavaParser.java:57)
+	at net.sourceforge.pmd.SourceCodeProcessor.parse(SourceCodeProcessor.java:110)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSource(SourceCodeProcessor.java:180)
+	at net.sourceforge.pmd.SourceCodeProcessor.processSourceCode(SourceCodeProcessor.java:95)
+	... 28 more

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 public class RefMoney {
 
 	@Id
+//	@GeneratedValue(strategy=GenerationType.TABLE)
 	@Column(name = "denomination")
 	private Integer denomination;
 

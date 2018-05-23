@@ -2,12 +2,18 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="System" key="selection"/>
-		<item value="false" key="casesensitive"/>
+		<item value="" key="selection"/>
+		<item value="true" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="ResponseEntity&lt;"/>
+			<item value="audit"/>
+			<item value="Audit"/>
+			<item value=" bank"/>
+			<item value="Bank "/>
+			<item value="bankDenomination"/>
 			<item value="system"/>
 			<item value="debit"/>
 			<item value="System.out.println"/>
@@ -17,14 +23,14 @@
 			<item value="e.printStackTrace();"/>
 			<item value="&#x09;&#x09;&#x09;e.printStackTrace();"/>
 			<item value="println"/>
-			<item value="trainee"/>
-			<item value="Pratyush"/>
-			<item value="trainee "/>
-			<item value="bank"/>
-			<item value="Bank"/>
-			<item value="ank"/>
 		</list>
 		<list key="replacehistory">
+			<item value=""/>
+			<item value="auditLog"/>
+			<item value="AuditLog"/>
+			<item value=" atm"/>
+			<item value="ATM "/>
+			<item value="atmDenomination"/>
 			<item value="bankPresence"/>
 			<item value="atm"/>
 			<item value="ATM"/>
@@ -34,12 +40,6 @@
 			<item value="Pratyush Gupta "/>
 			<item value="account"/>
 			<item value="Account"/>
-			<item value="Customer"/>
-			<item value="customer"/>
-			<item value="ustomer"/>
-			<item value="Integer "/>
-			<item value="Integer"/>
-			<item value="(value = &quot;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

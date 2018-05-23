@@ -1,5 +1,0 @@
-package com.training.bankingTransaction.service;
-
-public interface IATMService {
-
-}

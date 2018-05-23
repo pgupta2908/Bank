@@ -10,11 +10,6 @@ import javax.persistence.Table;
 @Table(name = "bank_denomination")
 public class BankDenomination {
 
-	/*
-	 * @Column(name="bank_id") private Integer bankId;
-	 */
-
-	// @Column(name = "denomination")
 	@Id
 	@OneToOne(targetEntity = RefMoney.class)
 	private Integer denomination;

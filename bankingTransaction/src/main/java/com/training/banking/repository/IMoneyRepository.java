@@ -1,4 +1,4 @@
-package com.training.banking.repository;
+/*package com.training.banking.repository;
 
 import java.math.BigDecimal;
 
@@ -11,3 +11,4 @@ import com.training.banking.model.Money;
 public interface IMoneyRepository extends JpaRepository<Money, BigDecimal> {
 
 }
+*/

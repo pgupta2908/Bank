@@ -14,7 +14,7 @@ public class Money {
 	/*@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "denomination_id")
-	private Integer denominationId;*/
+	private Integer denominationId;
 
 	@Id
 	@Column(name = "denomination")
@@ -23,13 +23,13 @@ public class Money {
 	@Column(name = "count")
 	private Integer count;
 
-	/*public Integer getDenominationId() {
+	public Integer getDenominationId() {
 		return denominationId;
 	}
 
 	public void setDenominationId(Integer denominationId) {
 		this.denominationId = denominationId;
-	}*/
+	}
 
 	public BigDecimal getDenomination() {
 		return denomination;
@@ -57,12 +57,12 @@ public class Money {
 		this.count = count;
 	}
 
-	/*public Money(Integer denominationId, BigDecimal denomination, Integer count) {
+	public Money(Integer denominationId, BigDecimal denomination, Integer count) {
 		super();
 		this.denominationId = denominationId;
 		this.denomination = denomination;
 		this.count = count;
-	}*/
+	}
 
 	@Override
 	public String toString() {

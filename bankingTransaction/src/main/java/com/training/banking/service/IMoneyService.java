@@ -1,4 +1,4 @@
-package com.training.banking.service;
+/*package com.training.banking.service;
 
 import java.math.BigDecimal;
 
@@ -10,3 +10,4 @@ public interface IMoneyService {
 
 	Money addMoney(BigDecimal amount, BigDecimal denomination, Integer count);
 }
+*/

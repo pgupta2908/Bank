@@ -1,11 +1,12 @@
 package com.training.audit.service;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.training.audit.exception.CreationException;
+import com.training.audit.exception.NullOrNegativeValuesException;
 import com.training.audit.model.AuditLog;
 
 public interface IAuditLogService {
@@ -13,8 +14,10 @@ public interface IAuditLogService {
 	/**
 	 * @param auditLog
 	 * @return
+	 * @throws NullOrNegativeValuesException 
+	 * @throws CreationException 
 	 */
-	AuditLog createAuditLog(@RequestBody AuditLog auditLog);
+	AuditLog createAuditLog(@RequestBody AuditLog auditLog) throws NullOrNegativeValuesException, CreationException;
 
 	/**
 	 * @return
@@ -26,12 +29,15 @@ public interface IAuditLogService {
 	 * @param eventId
 	 * @return
 	 */
-	AuditLog updateAuditLog(@RequestBody AuditLog auditLog, @RequestParam UUID eventId);
+	AuditLog updateAuditLog(String eventId, AuditLog auditLog);
+//	AuditLog updateAuditLog(@RequestBody AuditLog auditLog/*, @RequestParam String eventId*/);
 
 	/**
 	 * @param eventId
 	 * @return
 	 */
-	UUID deleteAuditLog(@RequestParam UUID eventId);
+	String deleteAuditLog(@RequestParam String eventId);
+
+	
 
 }

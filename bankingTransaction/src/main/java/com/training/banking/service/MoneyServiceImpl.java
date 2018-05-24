@@ -1,4 +1,4 @@
-package com.training.banking.service;
+/*package com.training.banking.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class MoneyServiceImpl implements IMoneyService {
 
 	@Override
 	public Money addMoney(BigDecimal amount, BigDecimal denomination, Integer count) {
-		/*Map<BigDecimal, Integer> moneyMap = (Map<BigDecimal, Integer>) moneyRepo
-				.findAll();*/
+		Map<BigDecimal, Integer> moneyMap = (Map<BigDecimal, Integer>) moneyRepo
+				.findAll();
 		List<Money> moneyList = new ArrayList<>();
 		moneyList = moneyRepo.findAll();
 		
@@ -47,3 +47,4 @@ public class MoneyServiceImpl implements IMoneyService {
 	}
 
 }
+*/

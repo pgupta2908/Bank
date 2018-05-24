@@ -1,4 +1,4 @@
-package com.training.banking.controller;
+/*package com.training.banking.controller;
 
 import java.util.List;
 
@@ -40,3 +40,4 @@ public class RefMoneyController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 }
+*/

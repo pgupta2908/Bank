@@ -1,6 +1,6 @@
 package com.training.audit.model;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -10,24 +10,19 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class AuditLog {
 
 	@Id
-	private UUID eventId;
-
+	private String eventId;
 	private String eventName;
-
 	private String eventType;
-
 	// private Timestamp eventDate;
-
-	private LocalDateTime eventDate;
-
+	private Date eventDate;
 	private String userId;
 
-	public UUID getEventId() {
+	public String getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(UUID eventId) {
-		this.eventId = eventId;
+	public void setEventId(String eventId) {
+		this.eventId = UUID.randomUUID().toString();
 	}
 
 	public String getEventName() {
@@ -46,12 +41,12 @@ public class AuditLog {
 		this.eventType = eventType;
 	}
 
-	public LocalDateTime getEventDate() {
+	public Date getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(LocalDateTime eventDate) {
-		this.eventDate = eventDate;
+	public void setEventDate(Date eventDate) {
+		this.eventDate = new Date();
 	}
 
 	public String getUserId() {
@@ -64,15 +59,21 @@ public class AuditLog {
 
 	public AuditLog() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public AuditLog(UUID eventId, String eventName, String eventType, LocalDateTime eventDate, String userId) {
+	public AuditLog(String eventName, String eventType, String userId) {
+		super();
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.userId = userId;
+	}
+
+	public AuditLog(String eventId, String eventName, String eventType, Date eventDate, String userId) {
 		super();
 		this.eventId = eventId;
 		this.eventName = eventName;
 		this.eventType = eventType;
-		this.eventDate = eventDate;
+		this.eventDate = new Date();
 		this.userId = userId;
 	}
 

@@ -1,4 +1,4 @@
-package com.training.banking.controller;
+/*package com.training.banking.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,3 +23,4 @@ public class BankDenominationController {
 		BankDenomination createdBankDenomination = bankDenominationService.
 	}
 }
+*/

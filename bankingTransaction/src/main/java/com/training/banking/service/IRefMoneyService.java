@@ -1,4 +1,4 @@
-package com.training.banking.service;
+/*package com.training.banking.service;
 
 import java.util.List;
 
@@ -11,3 +11,4 @@ public interface IRefMoneyService {
 	public List<RefMoney> listAllRefMoney();
 	
 }
+*/

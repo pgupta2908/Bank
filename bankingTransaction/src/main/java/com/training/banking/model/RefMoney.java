@@ -1,4 +1,4 @@
-package com.training.banking.model;
+/*package com.training.banking.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,3 +37,4 @@ public class RefMoney {
 	}
 
 }
+*/

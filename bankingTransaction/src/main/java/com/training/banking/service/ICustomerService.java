@@ -23,4 +23,12 @@ public interface ICustomerService {
 	 */
 	public Optional<Customer> getCustomerDetails(Integer customerId);
 
+	/**
+	 * @param customerId
+	 * @param name
+	 * @param pin
+	 * @return
+	 */
+	public Customer updateCustomerDetail(Integer customerId, String name, Integer pin);
+
 }

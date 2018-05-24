@@ -83,6 +83,7 @@ public class CustomerServiceImpl implements ICustomerService {
 					Bank bank = bankPossible.get();
 					log.info("bank object is present");
 					Customer customer = customerWrapper.getCustomer();
+					bank.setUserId(customer.getUserId());
 					customer.setBank(bank);
 
 					log.info("Customer created successfully");
@@ -138,6 +139,49 @@ public class CustomerServiceImpl implements ICustomerService {
 			log.error("Customer get Details Exception " + e.getMessage());
 			return null;
 		}
+	}
+
+	@Override
+	public Customer updateCustomerDetail(Integer customerId, String name, Integer pin) {
+		try {
+			// check for null or negative value of customerId
+			if (customerId <= 0) {
+				log.error(env.getProperty("nullOrNegativeValues"));
+				throw new NullOrNegativeValuesException("Please check for positive values of customer id");
+			}
+
+			// check for null values of name and pin
+			if (name == null || pin <= 0) {
+				log.error(env.getProperty("nullOrNegativeValues"));
+				throw new NullOrNegativeValuesException("Please check for positive values of customer id");
+			}
+
+			Optional<Customer> customerPossible = customerRepo.findById(customerId);
+			boolean customerPresence = customerPossible.isPresent();
+
+			// check for existence of customer object
+			if (customerPresence == false) {
+				log.error(env.getProperty("nullObject"));
+				throw new NotFoundException("Please check fot not null values of customer");
+			}
+
+			// when everything is correct
+			else {
+				Customer updatedCustomer = customerPossible.get();
+				updatedCustomer.setName(name);
+				updatedCustomer.setPin(pin);
+				return customerRepo.save(updatedCustomer);
+			}
+
+		} catch (NotFoundException e) {
+			log.error("Customer get Details Exception " + e.getMessage());
+//			return null;
+		} catch (NullOrNegativeValuesException e) {
+			log.error("Customer get Details Exception " + e.getMessage());
+//			return null;
+		}
+
+		return null;
 	}
 
 }

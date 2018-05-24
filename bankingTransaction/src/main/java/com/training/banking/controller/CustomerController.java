@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,10 +49,27 @@ public class CustomerController {
 	@GetMapping(value = "/getById")
 	public ResponseEntity<Optional<Customer>> getCustomerDetails(Integer customerId) {
 		Optional<Customer> customer = customerService.getCustomerDetails(customerId);
-		
+
 		if (customer != null)
 			return new ResponseEntity<Optional<Customer>>(customer, HttpStatus.FOUND);
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+
+	/**
+	 * @param customerId
+	 * @param name
+	 * @param pin
+	 * @return
+	 */
+	@PutMapping(value = "updateById/{id}/{name}/{pin}")
+	public ResponseEntity<Customer> updateCustomerDetail(@PathVariable(value = "id") Integer customerId,
+			@PathVariable(value = "name") String name, @PathVariable(value = "pin") Integer pin) {
+		Customer updatedCustomer = customerService.updateCustomerDetail(customerId, name, pin);
+		
+		if(updatedCustomer != null)
+			return new ResponseEntity<Customer>(updatedCustomer, HttpStatus.ACCEPTED);
+		else
+			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 	}
 }

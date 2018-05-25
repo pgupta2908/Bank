@@ -2,10 +2,12 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="com.training"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="mongoBank"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -33,6 +35,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\eurekaServer"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\auditLog"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bankingTransactionMongo"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bank"/>

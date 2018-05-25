@@ -1,6 +1,7 @@
 package com.training.audit.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class AuditLogController {
 	public ResponseEntity<?> createAuditLog(@RequestBody AuditLog auditLog) {
 		try {
 			AuditLog createdAuditLog = auditLogService.createAuditLog(auditLog);
-			return new ResponseEntity<AuditLog>(auditLog, HttpStatus.CREATED);
+			return new ResponseEntity<AuditLog>(createdAuditLog, HttpStatus.CREATED);
 		}
 
 		/*
@@ -62,17 +63,17 @@ public class AuditLogController {
 	}
 
 	@PutMapping(value = "/update/{eventId}")
-	public ResponseEntity<AuditLog> updateAuditLog(@PathVariable(value = "eventId") String eventId,
-			@RequestBody AuditLog auditLog/* , @RequestParam String eventId */) {
-		AuditLog updatedAuditLog = auditLogService.updateAuditLog(eventId, auditLog);
+	public ResponseEntity<AuditLog> updateAuditLog(@PathVariable(value = "eventId") UUID eventId/*,
+			@RequestBody AuditLog auditLog */, @RequestParam String userId ) {
+		AuditLog updatedAuditLog = auditLogService.updateAuditLog(eventId/*, auditLog*/, userId);
 		if (updatedAuditLog != null)
-			return new ResponseEntity<AuditLog>(auditLog, HttpStatus.ACCEPTED);
+			return new ResponseEntity<AuditLog>(updatedAuditLog, HttpStatus.ACCEPTED);
 		else
 			return new ResponseEntity<>(HttpStatus.NOT_MODIFIED);
 	}
 
 	@GetMapping(value = "/delete")
-	public ResponseEntity<String> deleteAuditLog(@RequestParam String eventId) {
+	public ResponseEntity<String> deleteAuditLog(@RequestParam UUID eventId) {
 		String deletedEventId = auditLogService.deleteAuditLog(eventId);
 		if (deletedEventId == "success")
 			return new ResponseEntity<String>(deletedEventId, HttpStatus.OK);

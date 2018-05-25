@@ -28,7 +28,8 @@ public interface ICustomerService {
 	 * @param name
 	 * @param pin
 	 * @return
+	 * @throws CloneNotSupportedException 
 	 */
-	public Customer updateCustomerDetail(Integer customerId, String name, Integer pin);
+	public Customer updateCustomerDetail(Integer customerId, String name, Integer pin) throws CloneNotSupportedException;
 
 }

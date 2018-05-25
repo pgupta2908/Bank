@@ -14,7 +14,7 @@ import javax.persistence.Table;
  */
 @Table(name = "Customer")
 @Entity
-public class Customer extends BaseEntity {
+public class Customer extends BaseEntity implements Cloneable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -105,6 +105,11 @@ public class Customer extends BaseEntity {
 	@Override
 	public String toString() {
 		return "Customer [customerId=" + customerId + ", name=" + name + ", pin=" + pin + ", bank=" + bank + "]";
+	}
+
+	@Override
+	public Customer clone() throws CloneNotSupportedException {
+		return (Customer) super.clone();
 	}
 
 }

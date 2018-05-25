@@ -57,7 +57,7 @@ public class ATMServiceImpl implements IATMService {
 
 			// check for already existing atm
 			if (atmWrapper.getAtm().getAtmId() != null) {
-				Optional<ATM> atmPossible = atmRepo.findById(atmWrapper.getAtm().getAtmId());
+				Optional<ATM> atmPossible = atmRepo.findByAtmId(atmWrapper.getAtm().getAtmId());
 				if (atmPossible.isPresent()) {
 					log.error(env.getProperty("alreadyExists"));
 					throw new CreationException("atm object already exists");
@@ -66,7 +66,7 @@ public class ATMServiceImpl implements IATMService {
 
 			else {
 				Integer bankId = atmWrapper.getBankId();
-				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 
 				boolean bankPresence = bankPossible.isPresent();
 
@@ -120,7 +120,7 @@ public class ATMServiceImpl implements IATMService {
 				throw new NullOrNegativeValuesException("Please check for positive values of atm Id and amont");
 			}
 
-			Optional<ATM> atmPossible = atmRepo.findById(atmId);
+			Optional<ATM> atmPossible = atmRepo.findByAtmId(atmId);
 
 			boolean atmPresence = atmPossible.isPresent();
 
@@ -134,7 +134,7 @@ public class ATMServiceImpl implements IATMService {
 				ATM atm = atmPossible.get();
 
 				Integer bankId = atm.getBank().getBankId();
-				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 
 				boolean bankPresesnce = bankPossible.isPresent();
 
@@ -192,7 +192,7 @@ public class ATMServiceImpl implements IATMService {
 				throw new NullOrNegativeValuesException("Please check for positive values of atm Id and amont");
 			}
 
-			Optional<ATM> atmPossible = atmRepo.findById(atmId);
+			Optional<ATM> atmPossible = atmRepo.findByAtmId(atmId);
 
 			boolean atmPresesnce = atmPossible.isPresent();
 

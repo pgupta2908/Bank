@@ -61,10 +61,11 @@ public class CustomerController {
 	 * @param name
 	 * @param pin
 	 * @return
+	 * @throws CloneNotSupportedException 
 	 */
 	@PutMapping(value = "updateById/{id}/{name}/{pin}")
 	public ResponseEntity<Customer> updateCustomerDetail(@PathVariable(value = "id") Integer customerId,
-			@PathVariable(value = "name") String name, @PathVariable(value = "pin") Integer pin) {
+			@PathVariable(value = "name") String name, @PathVariable(value = "pin") Integer pin) throws CloneNotSupportedException {
 		Customer updatedCustomer = customerService.updateCustomerDetail(customerId, name, pin);
 		
 		if(updatedCustomer != null)

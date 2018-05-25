@@ -68,7 +68,7 @@ public class AccountServiceImpl implements IAccountService {
 
 			// check for already existing account
 			if (accountWrapper.getAccount().getAccountId() != null) {
-				Optional<Account> accountPossible = accountRepo.findById(accountWrapper.getAccount().getAccountId());
+				Optional<Account> accountPossible = accountRepo.findByAccountId(accountWrapper.getAccount().getAccountId());
 				if (accountPossible.isPresent()) {
 					log.error(env.getProperty("alreadyExists"));
 					throw new CreationException("account object already exists");
@@ -77,7 +77,7 @@ public class AccountServiceImpl implements IAccountService {
 
 			else {
 				Integer bankId = accountWrapper.getBankId();
-				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 
 				boolean bankPresence = bankPossible.isPresent();
 
@@ -88,7 +88,7 @@ public class AccountServiceImpl implements IAccountService {
 				}
 
 				Integer customerId = accountWrapper.getCustomerId();
-				Optional<Customer> customerPossible = customerRepo.findById(customerId);
+				Optional<Customer> customerPossible = customerRepo.findByCustomerId(customerId);
 
 				boolean customerPresence = customerPossible.isPresent();
 
@@ -143,7 +143,7 @@ public class AccountServiceImpl implements IAccountService {
 				throw new NullOrNegativeValuesException("Please check for positive values of account Id and amont");
 			}
 
-			Optional<Account> accountPossible = accountRepo.findById(accountId);
+			Optional<Account> accountPossible = accountRepo.findByAccountId(accountId);
 			boolean accountPresence = accountPossible.isPresent();
 
 			// check for presence of account object
@@ -158,7 +158,7 @@ public class AccountServiceImpl implements IAccountService {
 
 				Integer bankId = account.getBank().getBankId();
 
-				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 				boolean bankPresence = bankPossible.isPresent();
 
 				// check for presence of bank object
@@ -204,7 +204,7 @@ public class AccountServiceImpl implements IAccountService {
 				throw new NullOrNegativeValuesException("Please check for positive values of account Id and amont");
 			}
 
-			Optional<Account> accountPossible = accountRepo.findById(accountId);
+			Optional<Account> accountPossible = accountRepo.findByAccountId(accountId);
 			boolean accountPresence = accountPossible.isPresent();
 
 			// check for presence of account object
@@ -225,7 +225,7 @@ public class AccountServiceImpl implements IAccountService {
 
 				Integer bankId = account.getBank().getBankId();
 
-				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 				boolean bankPresence = bankPossible.isPresent();
 
 				// check for presence of bank object
@@ -273,7 +273,7 @@ public class AccountServiceImpl implements IAccountService {
 	@Override
 	public Optional<Account> getAccountDetails(Integer accountId) {
 		try {
-			Optional<Account> accountPossible = accountRepo.findById(accountId);
+			Optional<Account> accountPossible = accountRepo.findByAccountId(accountId);
 
 			boolean accountPresence = accountPossible.isPresent();
 
@@ -292,7 +292,7 @@ public class AccountServiceImpl implements IAccountService {
 			// when everything is correct
 			else {
 				log.info("account found with customerId " + accountId);
-				return accountRepo.findById(accountId);
+				return accountRepo.findByAccountId(accountId);
 			}
 		} catch (NotFoundException e) {
 			log.error("Account get Details Exception " + e.getMessage());

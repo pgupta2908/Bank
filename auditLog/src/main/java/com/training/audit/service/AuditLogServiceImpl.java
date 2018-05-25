@@ -2,6 +2,7 @@ package com.training.audit.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,7 @@ public class AuditLogServiceImpl implements IAuditLogService {
 
 		// check for already existing auditLog
 		if (auditLog.getEventId() != null) {
-			Optional<AuditLog> auditLogPossible = auditLogRepo.findById(auditLog.getEventId());
+			Optional<AuditLog> auditLogPossible = auditLogRepo.findByEventId(auditLog.getEventId());
 			if (auditLogPossible.isPresent()) {
 				log.error(env.getProperty("alreadyExists"));
 				throw new CreationException("auditLog object already exists");
@@ -55,19 +56,6 @@ public class AuditLogServiceImpl implements IAuditLogService {
 				log.info("AuditLog created successfully");
 				return auditLogRepo.save(auditLog);
 			}
-
-			/* } */
-			/*
-			 * else { log.info("AuditLog created successfully"); return
-			 * auditLogRepo.save(auditLog); }
-			 */
-			/* } */ /*
-					 * catch (NullOrNegativeValuesException e) {
-					 * log.error("AuditLog Creation Exception " + e.getMessage()); // return null; }
-					 * catch (CreationException e) { log.error("AuditLog Creation Exception " +
-					 * e.getMessage()); // return null; }
-					 */
-			// return null;
 		}
 		return null;
 	}
@@ -78,22 +66,22 @@ public class AuditLogServiceImpl implements IAuditLogService {
 	}
 
 	@Override
-	public AuditLog updateAuditLog(String eventId, AuditLog auditLog) {
+	public AuditLog updateAuditLog(UUID eventId, /*AuditLog auditLog, */String userId) {
 		try {
-			// check for null value of auditLog
+			/*// check for null value of auditLog
 			if (auditLog == null) {
 				log.error(env.getProperty("nullObject"));
 				throw new NullOrNegativeValuesException("Please check for null values of auditLog");
-			}
+			}*/
 
-			// check for null or negative values of fields
-			if (/* auditLog.getEventDate() == null || auditLog.getEventId() == null || */auditLog.getEventName() == null
+			/*// check for null or negative values of fields
+			if ( auditLog.getEventDate() == null || auditLog.getEventId() == null || auditLog.getEventName() == null
 					|| auditLog.getEventType() == null || auditLog.getUserId() == null) {
 				log.error(env.getProperty("nullOrNegativeValues"));
 				throw new NullOrNegativeValuesException("Please check for null values of auditLog");
-			}
+			}*/
 
-			Optional<AuditLog> auditLogPossible = auditLogRepo.findById(eventId);
+			Optional<AuditLog> auditLogPossible = auditLogRepo.findByEventId(eventId);
 			boolean auditLogPresence = auditLogPossible.isPresent();
 
 			// check for already existing auditLog
@@ -102,8 +90,26 @@ public class AuditLogServiceImpl implements IAuditLogService {
 				log.error(env.getProperty("nullObject"));
 				throw new NotFoundException("auditLog does not exist");
 			} else {
+				AuditLog updatedAuditLog = auditLogPossible.get();
+
+				/*String eventName = updatedAuditLog.getEventName();
+				String eventType = updatedAuditLog.getEventType();
+				String eventDate = updatedAuditLog.getEventDate();
+				String userId = updatedAuditLog.getUserId();
+				Object oldObject = updatedAuditLog.getOldObject();
+				Object newObject = updatedAuditLog.getNewObject();
+
+				updatedAuditLog.setEventName(eventName);
+				updatedAuditLog.setEventType(eventType);
+				updatedAuditLog.setEventDate(eventDate);
+				updatedAuditLog.setUserId(userId);
+				updatedAuditLog.setOldObject(oldObject);
+				updatedAuditLog.setNewObject(newObject);*/
+				
+				updatedAuditLog.setUserId(userId);
+				
 				log.info("AuditLog updated successfully");
-				return auditLogRepo.save(auditLog);
+				return auditLogRepo.save(updatedAuditLog);
 			}
 			// }
 
@@ -112,10 +118,10 @@ public class AuditLogServiceImpl implements IAuditLogService {
 			 * NotFoundException("auditLog does not exist");
 			 */
 
-		} catch (NullOrNegativeValuesException e) {
+		/*} catch (NullOrNegativeValuesException e) {
 			log.error("AuditLog Updation Exception " + e.getMessage());
 			// return null;
-		} catch (NotFoundException e) {
+*/		} catch (NotFoundException e) {
 			log.error("AuditLog Updation Exception " + e.getMessage());
 			// return null;
 		}
@@ -123,7 +129,7 @@ public class AuditLogServiceImpl implements IAuditLogService {
 	}
 
 	@Override
-	public String deleteAuditLog(String eventId) {
+	public String deleteAuditLog(UUID eventId) {
 		try {
 			// check for negative or null value of eventId
 			if (eventId.equals(null)) {
@@ -133,7 +139,7 @@ public class AuditLogServiceImpl implements IAuditLogService {
 
 			// if (eventId != null) {
 
-			Optional<AuditLog> auditLogPossible = auditLogRepo.findById(eventId);
+			Optional<AuditLog> auditLogPossible = auditLogRepo.findByEventId(eventId);
 			boolean auditLogPresence = auditLogPossible.isPresent();
 
 			// check for presence of auditLog

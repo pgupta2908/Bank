@@ -48,7 +48,7 @@ public class BankServiceImpl implements IBankService {
 
 			// check for already existing bank
 			if (bank.getBankId() != null) {
-				Optional<Bank> bankPossible = bankRepo.findById(bank.getBankId());
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bank.getBankId());
 				if (bankPossible.isPresent()) {
 					log.error(env.getProperty("alreadyExists"));
 					throw new CreationException("bank object already exists");
@@ -79,7 +79,7 @@ public class BankServiceImpl implements IBankService {
 				throw new NullOrNegativeValuesException("Please check for positive values of bankId");
 			}
 
-			Optional<Bank> bankPossible = bankRepo.findById(bankId);
+			Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 
 			boolean bankPresence = bankPossible.isPresent();
 
@@ -92,7 +92,7 @@ public class BankServiceImpl implements IBankService {
 			// when everything is correct
 			else {
 				log.info("bank found with bankId" + bankId);
-				return bankRepo.findById(bankId);
+				return bankRepo.findByBankId(bankId);
 
 			}
 		} catch (NotFoundException e) {

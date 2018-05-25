@@ -1,5 +1,7 @@
 package com.training.banking.service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.jboss.logging.Logger;
@@ -10,6 +12,8 @@ import org.springframework.stereotype.Service;
 import com.training.banking.exception.CreationException;
 import com.training.banking.exception.NotFoundException;
 import com.training.banking.exception.NullOrNegativeValuesException;
+import com.training.banking.model.AuditEnums;
+import com.training.banking.model.AuditLog;
 import com.training.banking.model.Bank;
 import com.training.banking.model.Customer;
 import com.training.banking.repository.IBankRepository;
@@ -30,6 +34,9 @@ public class CustomerServiceImpl implements ICustomerService {
 
 	@Autowired
 	IBankRepository bankRepo;
+	
+	@Autowired
+	IAuditService auditService;
 
 	@Autowired
 	Environment env;
@@ -59,7 +66,7 @@ public class CustomerServiceImpl implements ICustomerService {
 			// check for already existing customer
 			if (customerWrapper.getCustomer().getCustomerId() != null) {
 				Optional<Customer> customerPossible = customerRepo
-						.findById(customerWrapper.getCustomer().getCustomerId());
+						.findByCustomerId(customerWrapper.getCustomer().getCustomerId());
 				if (customerPossible.isPresent()) {
 					log.error(env.getProperty("alreadyExists"));
 					throw new CreationException("customer object already exists");
@@ -68,7 +75,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
 			else {
 				Integer bankId = customerWrapper.getBankId();
-				Optional<Bank> bankPossible = bankRepo.findById(bankId);
+				Optional<Bank> bankPossible = bankRepo.findByBankId(bankId);
 
 				boolean bankPresence = bankPossible.isPresent();
 
@@ -111,7 +118,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	public Optional<Customer> getCustomerDetails(Integer customerId) {
 
 		try {
-			Optional<Customer> customerPossible = customerRepo.findById(customerId);
+			Optional<Customer> customerPossible = customerRepo.findByCustomerId(customerId);
 
 			boolean customerPresence = customerPossible.isPresent();
 
@@ -130,7 +137,7 @@ public class CustomerServiceImpl implements ICustomerService {
 			// when everything is correct
 			else {
 				log.info("customer found with customerId " + customerId);
-				return customerRepo.findById(customerId);
+				return customerRepo.findByCustomerId(customerId);
 			}
 		} catch (NotFoundException e) {
 			log.error("Customer get Details Exception " + e.getMessage());
@@ -142,7 +149,7 @@ public class CustomerServiceImpl implements ICustomerService {
 	}
 
 	@Override
-	public Customer updateCustomerDetail(Integer customerId, String name, Integer pin) {
+	public Customer updateCustomerDetail(Integer customerId, String name, Integer pin) throws CloneNotSupportedException {
 		try {
 			// check for null or negative value of customerId
 			if (customerId <= 0) {
@@ -156,7 +163,7 @@ public class CustomerServiceImpl implements ICustomerService {
 				throw new NullOrNegativeValuesException("Please check for positive values of customer id");
 			}
 
-			Optional<Customer> customerPossible = customerRepo.findById(customerId);
+			Optional<Customer> customerPossible = customerRepo.findByCustomerId(customerId);
 			boolean customerPresence = customerPossible.isPresent();
 
 			// check for existence of customer object
@@ -168,17 +175,38 @@ public class CustomerServiceImpl implements ICustomerService {
 			// when everything is correct
 			else {
 				Customer updatedCustomer = customerPossible.get();
+				
+				AuditLog auditLog = new AuditLog();
+				Customer oldCustomer = updatedCustomer.clone();
+//				UUID eventId = UUID.randomUUID();
+				Timestamp eventDate = Timestamp.valueOf(LocalDateTime.now());
+				
+//				auditLog.setEventId(eventId);
+				auditLog.setEventName(AuditEnums.EventName.CUSTOMER.toString());
+				auditLog.setEventType(AuditEnums.EventType.UPDATED.toString());
+				auditLog.setEventDate(eventDate);
+				auditLog.setUserId("one");
+				
+				auditLog.setOldObject(oldCustomer);
+				
 				updatedCustomer.setName(name);
 				updatedCustomer.setPin(pin);
+
+				auditLog.setNewObject(updatedCustomer);
+				
+				auditService.sendAuditLog(auditLog);
+
+				/*customerRepo.flush();*/
 				return customerRepo.save(updatedCustomer);
+
 			}
 
 		} catch (NotFoundException e) {
 			log.error("Customer get Details Exception " + e.getMessage());
-//			return null;
+			// return null;
 		} catch (NullOrNegativeValuesException e) {
 			log.error("Customer get Details Exception " + e.getMessage());
-//			return null;
+			// return null;
 		}
 
 		return null;

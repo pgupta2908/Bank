@@ -3,14 +3,19 @@
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
 		<item value="" key="selection"/>
-		<item value="true" key="casesensitive"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="sql"/>
+			<item value="event"/>
+			<item value="AuditLogLog"/>
+			<item value="Audit"/>
+			<item value="UUID"/>
+			<item value="LocalDateTime"/>
 			<item value="ResponseEntity&lt;"/>
 			<item value="audit"/>
-			<item value="Audit"/>
 			<item value=" bank"/>
 			<item value="Bank "/>
 			<item value="bankDenomination"/>
@@ -18,16 +23,14 @@
 			<item value="debit"/>
 			<item value="System.out.println"/>
 			<item value="bankPresesnce"/>
-			<item value="customer"/>
-			<item value="Customer"/>
-			<item value="e.printStackTrace();"/>
-			<item value="&#x09;&#x09;&#x09;e.printStackTrace();"/>
-			<item value="println"/>
 		</list>
 		<list key="replacehistory">
+			<item value="user"/>
+			<item value="AuditLog"/>
+			<item value="String"/>
+			<item value="Date"/>
 			<item value=""/>
 			<item value="auditLog"/>
-			<item value="AuditLog"/>
 			<item value=" atm"/>
 			<item value="ATM "/>
 			<item value="atmDenomination"/>
@@ -37,16 +40,13 @@
 			<item value="log.error(e.getMessage());"/>
 			<item value="Pratyush Gupta"/>
 			<item value="Pratyush"/>
-			<item value="Pratyush Gupta "/>
-			<item value="account"/>
-			<item value="Account"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="284" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="390" key="DIALOG_HEIGHT"/>
-		<item value="929" key="DIALOG_X_ORIGIN"/>
-		<item value="227" key="DIALOG_Y_ORIGIN"/>
+		<item value="962" key="DIALOG_X_ORIGIN"/>
+		<item value="222" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

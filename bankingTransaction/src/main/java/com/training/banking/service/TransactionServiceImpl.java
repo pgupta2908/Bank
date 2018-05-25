@@ -86,7 +86,7 @@ public class TransactionServiceImpl implements ITransactionService {
 				throw new NullOrNegativeValuesException("Please enter positive values only");
 			}
 
-			Optional<Account> accountPossible = accountRepo.findById(accountId);
+			Optional<Account> accountPossible = accountRepo.findByAccountId(accountId);
 			boolean accountPresence = accountPossible.isPresent();
 			// check for presence of account
 			if (accountPresence == false) {
@@ -94,7 +94,7 @@ public class TransactionServiceImpl implements ITransactionService {
 				throw new NotFoundException("The account corresponding to account id does not exist");
 			}
 
-			Optional<Transaction> transactionList = transactionRepo.findById(customerId);
+			Optional<Transaction> transactionList = transactionRepo.findByTransactionId(customerId);
 //			findAllById(customerId);
 			Transaction transaction = transactionList.get();
 			System.out.println(transaction);

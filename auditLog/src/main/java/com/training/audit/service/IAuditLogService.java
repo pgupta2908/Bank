@@ -1,6 +1,7 @@
 package com.training.audit.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,14 +30,14 @@ public interface IAuditLogService {
 	 * @param eventId
 	 * @return
 	 */
-	AuditLog updateAuditLog(String eventId, AuditLog auditLog);
+	AuditLog updateAuditLog(UUID eventId/*, AuditLog auditLog*/, String userId);
 //	AuditLog updateAuditLog(@RequestBody AuditLog auditLog/*, @RequestParam String eventId*/);
 
 	/**
 	 * @param eventId
 	 * @return
 	 */
-	String deleteAuditLog(@RequestParam String eventId);
+	String deleteAuditLog(@RequestParam UUID eventId);
 
 	
 

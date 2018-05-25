@@ -1,6 +1,6 @@
 package com.training.audit.model;
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -10,19 +10,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class AuditLog {
 
 	@Id
-	private String eventId;
+	private UUID eventId;
 	private String eventName;
 	private String eventType;
-	// private Timestamp eventDate;
-	private Date eventDate;
+	private Timestamp eventDate;
 	private String userId;
+	private Object oldObject;
+	private Object newObject;
 
-	public String getEventId() {
+	public UUID getEventId() {
 		return eventId;
 	}
 
-	public void setEventId(String eventId) {
-		this.eventId = UUID.randomUUID().toString();
+	public void setEventId(UUID eventId) {
+		this.eventId = UUID.randomUUID();
 	}
 
 	public String getEventName() {
@@ -41,12 +42,12 @@ public class AuditLog {
 		this.eventType = eventType;
 	}
 
-	public Date getEventDate() {
+	public Timestamp getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(Date eventDate) {
-		this.eventDate = new Date();
+	public void setEventDate(Timestamp eventDate) {
+		this.eventDate = eventDate;
 	}
 
 	public String getUserId() {
@@ -57,34 +58,53 @@ public class AuditLog {
 		this.userId = userId;
 	}
 
+	public Object getOldObject() {
+		return oldObject;
+	}
+
+	public void setOldObject(Object oldObject) {
+		this.oldObject = oldObject;
+	}
+
+	public Object getNewObject() {
+		return newObject;
+	}
+
+	public void setNewObject(Object newObject) {
+		this.newObject = newObject;
+	}
+
 	public AuditLog() {
-		super();
+		this.eventId = UUID.randomUUID();
 	}
 
-	public AuditLog(String eventName, String eventType, String userId) {
+	public AuditLog(String eventName, String eventType, Timestamp eventDate, String userId, Object oldObject,
+			Object newObject) {
 		super();
 		this.eventName = eventName;
 		this.eventType = eventType;
+		this.eventDate = eventDate;
 		this.userId = userId;
+		this.oldObject = oldObject;
+		this.newObject = newObject;
 	}
 
-	public AuditLog(String eventId, String eventName, String eventType, Date eventDate, String userId) {
+	public AuditLog(UUID eventId, String eventName, String eventType, Timestamp eventDate, String userId,
+			Object oldObject, Object newObject) {
 		super();
-		this.eventId = eventId;
+		this.eventId = UUID.randomUUID();
 		this.eventName = eventName;
 		this.eventType = eventType;
-		this.eventDate = new Date();
+		this.eventDate = eventDate;
 		this.userId = userId;
+		this.oldObject = oldObject;
+		this.newObject = newObject;
 	}
 
 	@Override
 	public String toString() {
 		return "AuditLog [eventId=" + eventId + ", eventName=" + eventName + ", eventType=" + eventType + ", eventDate="
-				+ eventDate + ", userId=" + userId + "]";
+				+ eventDate + ", userId=" + userId + ", oldObject=" + oldObject + ", newObject=" + newObject + "]";
 	}
-
-	// private BaseEntity oldValue;
-
-	// private BaseEntity newValue;
 
 }

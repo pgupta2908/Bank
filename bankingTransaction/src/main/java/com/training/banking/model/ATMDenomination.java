@@ -5,18 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "atm_denomination")
 public class ATMDenomination {
+
 	@Id
-	@OneToOne(targetEntity = RefMoney.class)
+	@NotNull
+	// @OneToOne(targetEntity = RefMoney.class)
 	private Integer denomination;
 
 	@Column(name = "no_of_denomination")
 	private Integer noOfDenomination;
 
-	@OneToOne(targetEntity = Bank.class)
+	@OneToOne(targetEntity = ATM.class)
 	private ATM atm;
 
 	public Integer getDenomination() {
@@ -47,7 +50,7 @@ public class ATMDenomination {
 		super();
 	}
 
-	public ATMDenomination(Integer denomination, Integer noOfDenomination, ATM atm) {
+	public ATMDenomination(@NotNull Integer denomination, Integer noOfDenomination, ATM atm) {
 		super();
 		this.denomination = denomination;
 		this.noOfDenomination = noOfDenomination;

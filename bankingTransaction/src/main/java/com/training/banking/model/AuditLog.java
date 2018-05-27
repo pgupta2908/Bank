@@ -1,7 +1,6 @@
 package com.training.banking.model;
 
 import java.sql.Timestamp;
-import java.util.UUID;
 
 public class AuditLog {
 

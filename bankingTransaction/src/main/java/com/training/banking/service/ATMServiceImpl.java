@@ -33,6 +33,12 @@ public class ATMServiceImpl implements IATMService {
 	@Autowired
 	IBankRepository bankRepo;
 
+/*	@Autowired
+	IATMDenominationRepository atmDenominationRepo;
+	
+	@Autowired
+	IBankDenominationRepository bankDenominationRepo;*/
+	
 	@Autowired
 	Environment env;
 
@@ -154,7 +160,14 @@ public class ATMServiceImpl implements IATMService {
 						log.error("lowBalance");
 						throw new LowBalanceException("Please try again with lower amount, bank is low on funds");
 					}
-
+					
+					/*//	denomination applied
+					List<BankDenomination> bankDenominationList = bankDenominationRepo.findAll();
+					System.out.println("........................"+bankDenominationList);
+					*/
+					
+					
+					
 					BigDecimal atmInitialBalance = atm.getAmount();
 					BigDecimal atmUpdatedBalance = atmInitialBalance.add(amount);
 					atm.setAmount(atmUpdatedBalance);

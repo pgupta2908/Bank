@@ -4,13 +4,14 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "ref_money")
 public class RefMoney {
 
 	@Id
-//	@GeneratedValue(strategy=GenerationType.TABLE)
+	@NotNull
 	@Column(name = "denomination")
 	private Integer denomination;
 

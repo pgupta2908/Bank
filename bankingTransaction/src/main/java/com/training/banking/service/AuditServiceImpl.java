@@ -10,7 +10,7 @@ public class AuditServiceImpl implements IAuditService {
 
 	@Override
 	public void sendAuditLog(AuditLog auditLog) {
-		final String uri = "http://localhost:8080/auditLog/create";
+		final String uri = "http://localhost:8082/auditLog/create";
 
 		final RestTemplate restTemplate = new RestTemplate();
 		final AuditLog result = restTemplate.postForObject(uri, auditLog, AuditLog.class);

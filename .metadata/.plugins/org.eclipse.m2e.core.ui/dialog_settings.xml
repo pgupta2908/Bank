@@ -35,11 +35,12 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE"/>
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bankingTransaction"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\eurekaServer"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\auditLog"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bankingTransactionMongo"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bank"/>
-			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bankingTransaction"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\demo"/>
 		</list>
 		<list key="projectNameTemplate">

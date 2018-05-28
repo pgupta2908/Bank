@@ -10,6 +10,8 @@ import com.training.audit.model.AuditLog;
 
 @Repository
 public interface IAuditLogRepository extends MongoRepository<AuditLog, UUID> {
-	
+
 	public Optional<AuditLog> findByEventId(UUID id);
+
+	public void deleteByEventId(UUID id);
 }

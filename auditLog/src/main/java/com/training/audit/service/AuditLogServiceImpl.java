@@ -150,7 +150,7 @@ public class AuditLogServiceImpl implements IAuditLogService {
 			// }
 
 			else {
-				auditLogRepo.deleteById(eventId);
+				auditLogRepo.deleteByEventId(eventId);
 
 				/*
 				 * Optional<AuditLog> auditLogPossible = auditLogRepo.findById(eventId);

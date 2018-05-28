@@ -4,5 +4,5 @@ import com.training.banking.model.AuditLog;
 
 public interface IAuditService {
 
-	public void sendAuditLog(AuditLog auditLog);
+	public AuditLog sendAuditLog(AuditLog auditLog);
 }

@@ -1,4 +1,4 @@
-package com.training.banking.controller;
+/*package com.training.banking.controller;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -15,3 +15,4 @@ public class ApplicationConfig {
 		return new RestTemplate();
 	}
 }
+*/

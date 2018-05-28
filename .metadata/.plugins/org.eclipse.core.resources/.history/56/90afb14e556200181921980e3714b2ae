@@ -1,0 +1,43 @@
+###########################################################
+################## datasource properties ##################
+
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://localhost:3306/bank?useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+server.port=8081
+
+spring.application.name=AuditLog
+
+eureka.client.register-with-eureka= true
+eureka.client.fetch-registry= true
+eureka.client.service-url.defaultZone= http://localhost:8085/eureka/
+
+#spring.jpa.show-sql=true
+
+###################################################
+################## properties #####################
+
+cr="credited"
+dr="debited"
+
+###################################################
+################## other values ###################
+
+creation01="Please enter values other than null"
+exists01="A bank already exists with these details"
+positive01="Please enter positive value only"
+
+####################################################
+################## error messages ##################
+
+nullOrNegativeValues="null or negative values are present"
+nullObject="null objects are present"
+lowBalance="initial balance is low"
+notFound="object not found in the database with corresponding id"
+alreadyExists="object already exists"
+
+#####################################################

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;AuditLog.java&apos; to &apos;eurekaServer/src/main/java/com.training.eurekaServer.model&apos;&#x0D;&#x0A;- Original project: &apos;bankingTransaction&apos;&#x0D;&#x0A;- Destination element: &apos;eurekaServer/src/main/java/com.training.eurekaServer.model&apos;&#x0D;&#x0A;- Original element: &apos;com.training.banking.model.AuditLog.java&apos;" description="Copy compilation unit" destination="=eurekaServer/src\/main\/java&lt;com.training.eurekaServer.model" element1="/src\/main\/java&lt;com.training.banking.model{AuditLog.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1527492082775" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,20 @@
+package com.training.banking.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.training.banking.model.AuditLog;
+import com.training.banking.service.IAuditService;
+
+@RestController()
+public class AuditController {
+
+	@Autowired
+	IAuditService auditService;
+
+	@PostMapping(path = "/auditLog/create")
+	AuditLog sendAuditLog(AuditLog auditLog) {
+		return auditService.sendAuditLog(auditLog);
+	}
+}

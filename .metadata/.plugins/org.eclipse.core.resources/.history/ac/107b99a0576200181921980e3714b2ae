@@ -1,0 +1,19 @@
+package com.training.eurekaServer.service;
+
+import org.springframework.web.client.RestTemplate;
+
+import com.training.eurekaServer.model.AuditLog;
+
+public class AuditLogServiceImpl implements IAuditLogService{
+
+	@Override
+	public void sendAuditLog(AuditLog auditLog) {
+		String uri = "http://localhost:8082/auditLog/create";
+		
+		RestTemplate restTemplate = new RestTemplate();
+		AuditLog result = restTemplate.postForObject(uri, auditLog, AuditLog.class);
+		
+		System.out.println(result);
+	}
+
+}

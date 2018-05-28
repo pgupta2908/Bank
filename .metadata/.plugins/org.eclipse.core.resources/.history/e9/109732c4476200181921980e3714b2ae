@@ -1,0 +1,6 @@
+package com.training.eurekaServer.service;
+
+public interface IAuditLogService {
+
+	public void sendAuditLog(AuditLog auditLog);
+}

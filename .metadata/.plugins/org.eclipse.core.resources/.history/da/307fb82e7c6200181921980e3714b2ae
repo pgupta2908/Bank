@@ -1,0 +1,5 @@
+package com.training.banking.controller;
+
+public class AuditController {
+
+}

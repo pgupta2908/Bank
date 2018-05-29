@@ -1,6 +1,6 @@
 package com.training.audit.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
@@ -13,7 +13,8 @@ public class AuditLog {
 	private UUID eventId;
 	private String eventName;
 	private String eventType;
-	private Timestamp eventDate;
+	/* private Timestamp eventDate; */
+	private Date eventDate;
 	private String userId;
 	private Object oldObject;
 	private Object newObject;
@@ -42,11 +43,17 @@ public class AuditLog {
 		this.eventType = eventType;
 	}
 
-	public Timestamp getEventDate() {
+	/*
+	 * public Timestamp getEventDate() { return eventDate; }
+	 * 
+	 * public void setEventDate(Timestamp eventDate) { this.eventDate = eventDate; }
+	 */
+
+	public Date getEventDate() {
 		return eventDate;
 	}
 
-	public void setEventDate(Timestamp eventDate) {
+	public void setEventDate(Date eventDate) {
 		this.eventDate = eventDate;
 	}
 
@@ -78,7 +85,23 @@ public class AuditLog {
 		this.eventId = UUID.randomUUID();
 	}
 
-	public AuditLog(String eventName, String eventType, Timestamp eventDate, String userId, Object oldObject,
+	/*
+	 * public AuditLog(String eventName, String eventType, Timestamp eventDate,
+	 * String userId, Object oldObject, Object newObject) { super(); this.eventName
+	 * = eventName; this.eventType = eventType; this.eventDate = eventDate;
+	 * this.userId = userId; this.oldObject = oldObject; this.newObject = newObject;
+	 * }
+	 */
+
+	/*
+	 * public AuditLog(UUID eventId, String eventName, String eventType, Timestamp
+	 * eventDate, String userId, Object oldObject, Object newObject) { super();
+	 * this.eventId = UUID.randomUUID(); this.eventName = eventName; this.eventType
+	 * = eventType; this.eventDate = eventDate; this.userId = userId; this.oldObject
+	 * = oldObject; this.newObject = newObject; }
+	 */
+
+	public AuditLog(String eventName, String eventType, Date eventDate, String userId, Object oldObject,
 			Object newObject) {
 		super();
 		this.eventName = eventName;
@@ -89,10 +112,10 @@ public class AuditLog {
 		this.newObject = newObject;
 	}
 
-	public AuditLog(UUID eventId, String eventName, String eventType, Timestamp eventDate, String userId,
-			Object oldObject, Object newObject) {
+	public AuditLog(UUID eventId, String eventName, String eventType, Date eventDate, String userId, Object oldObject,
+			Object newObject) {
 		super();
-		this.eventId = UUID.randomUUID();
+		this.eventId = eventId;
 		this.eventName = eventName;
 		this.eventType = eventType;
 		this.eventDate = eventDate;

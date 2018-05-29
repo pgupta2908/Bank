@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.training.banking.model.AuditLog;
 
-@FeignClient("AuditLog")
+@FeignClient("ZuulGateway")
+//@FeignClient("AuditLog")
 public interface IAuditService {
 
-	@PostMapping(path = "/auditLog/create")
+	@PostMapping(path = "/AuditLogging/auditLog/create")
 	AuditLog sendAuditLog(AuditLog auditLog);
 }

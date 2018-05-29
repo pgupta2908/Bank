@@ -1,7 +1,7 @@
 package com.training.banking.service;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Optional;
 
 import org.jboss.logging.Logger;
@@ -179,7 +179,11 @@ public class CustomerServiceImpl implements ICustomerService {
 				AuditLog auditLog = new AuditLog();
 				Customer oldCustomer = updatedCustomer.clone();
 //				UUID eventId = UUID.randomUUID();
-				Timestamp eventDate = Timestamp.valueOf(LocalDateTime.now());
+//				Timestamp eventDate = Timestamp.valueOf(LocalDateTime.now());
+				/*Date eventDate = new Date();*/
+				Calendar calendar = Calendar.getInstance();
+				Date eventDate = calendar.getTime();
+				auditLog.setEventDate(eventDate);
 				
 //				auditLog.setEventId(eventId);
 				auditLog.setEventName(AuditEnums.EventName.CUSTOMER.toString());

@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="452" key="DIALOG_X_ORIGIN"/>
+		<item value="248" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="delete" key="selection"/>
+		<item value="" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="time"/>
+			<item value="*****"/>
+			<item value="URI"/>
+			<item value="BankURL"/>
+			<item value="-"/>
 			<item value="delete"/>
 			<item value="by"/>
 			<item value="sql"/>
@@ -18,13 +27,11 @@
 			<item value="LocalDateTime"/>
 			<item value="ResponseEntity&lt;"/>
 			<item value="audit"/>
-			<item value=" bank"/>
-			<item value="Bank "/>
-			<item value="bankDenomination"/>
-			<item value="system"/>
-			<item value="debit"/>
 		</list>
 		<list key="replacehistory">
+			<item value="uri"/>
+			<item value="URI"/>
+			<item value="*"/>
 			<item value="user"/>
 			<item value="AuditLog"/>
 			<item value="String"/>
@@ -37,9 +44,6 @@
 			<item value="bankPresence"/>
 			<item value="atm"/>
 			<item value="ATM"/>
-			<item value="log.error(e.getMessage());"/>
-			<item value="Pratyush Gupta"/>
-			<item value="Pratyush"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

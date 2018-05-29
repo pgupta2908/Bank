@@ -11,7 +11,7 @@ import javax.persistence.MappedSuperclass;
 public class BaseEntity {
 
 	@Column(name = "user_id")
-	private String userId = "base";
+	private String userId;
 
 	/**
 	 * @return

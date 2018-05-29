@@ -1,13 +1,14 @@
 package com.training.banking.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class AuditLog {
 
 	// private UUID eventId;
 	private String eventName;
 	private String eventType;
-	private Timestamp eventDate;
+	/*private Timestamp eventDate;*/
+	private Date eventDate;
 	private String userId;
 	private Object oldObject;
 	private Object newObject;
@@ -34,14 +35,22 @@ public class AuditLog {
 		this.eventType = eventType;
 	}
 
-	public Timestamp getEventDate() {
+	/*public Timestamp getEventDate() {
 		return eventDate;
 	}
 
 	public void setEventDate(Timestamp eventDate) {
 		this.eventDate = eventDate;
+	}*/
+
+	public Date getEventDate() {
+		return eventDate;
 	}
 
+	public void setEventDate(Date eventDate) {
+		this.eventDate = eventDate;
+	}
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -70,7 +79,18 @@ public class AuditLog {
 		super();
 	}
 
-	public AuditLog(String eventName, String eventType, Timestamp eventDate, String userId, Object oldObject,
+	/*public AuditLog(String eventName, String eventType, Timestamp eventDate, String userId, Object oldObject,
+			Object newObject) {
+		super();
+		this.eventName = eventName;
+		this.eventType = eventType;
+		this.eventDate = eventDate;
+		this.userId = userId;
+		this.oldObject = oldObject;
+		this.newObject = newObject;
+	}*/
+
+	public AuditLog(String eventName, String eventType, Date eventDate, String userId, Object oldObject,
 			Object newObject) {
 		super();
 		this.eventName = eventName;
@@ -80,7 +100,7 @@ public class AuditLog {
 		this.oldObject = oldObject;
 		this.newObject = newObject;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "AuditLog [eventName=" + eventName + ", eventType=" + eventType + ", eventDate=" + eventDate

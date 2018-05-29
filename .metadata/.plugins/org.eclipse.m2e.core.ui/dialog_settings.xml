@@ -35,6 +35,10 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\SBankMongo"/>
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\SpringConfig"/>
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\SpringConfigClient"/>
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\ZuulGateway"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\bankingTransaction"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\eurekaServer"/>

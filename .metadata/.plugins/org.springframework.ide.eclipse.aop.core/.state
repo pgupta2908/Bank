@@ -4,6 +4,7 @@
 <aop-project name="config-client"/>
 <aop-project name="training-spring-security"/>
 <aop-project name="auditLog"/>
+<aop-project name="spring-security-multiple-login-pages-master"/>
 <aop-project name="config-server"/>
 <aop-project name="SBankMongo"/>
 <aop-project name="eurekaServer"/>

@@ -35,6 +35,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\spring-security-multiple-login-pages-master"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\training-spring-security"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\config-server"/>
 			<item value="C:\Users\trainee\Documents\workspace-sts-3.9.4.RELEASE\config-client"/>

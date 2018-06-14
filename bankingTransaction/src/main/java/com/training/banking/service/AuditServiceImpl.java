@@ -1,4 +1,4 @@
-/*package com.training.banking.service;
+package com.training.banking.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,8 +9,8 @@ import com.training.banking.model.AuditLog;
 @Service
 public class AuditServiceImpl implements IAuditService {
 
-	@Autowired
-	DiscoveryClient discoveryClient;
+/*	@Autowired
+	DiscoveryClient discoveryClient;*/
 	
 	@Autowired
 	RestTemplate restTemplate;
@@ -21,7 +21,7 @@ public class AuditServiceImpl implements IAuditService {
 		String uri = "http://AuditLog/auditLog/create";
 		AuditLog createdAudit = restTemplate.postForObject(uri, auditLog, AuditLog.class);
 		return createdAudit;
-			final String uri = "http://localhost:8085";
+			/*final String uri = "http://localhost:8085";
 
 		final RestTemplate restTemplate = new RestTemplate();
 		final AuditLog result = restTemplate.postForObject(uri, auditLog, AuditLog.class);
@@ -36,11 +36,10 @@ public class AuditServiceImpl implements IAuditService {
 		URI=URI+"/auditLog/create";
 		AuditLog createdAudit = restTemplate.postForObject(URI, auditLog, AuditLog.class);
 
-		return createdAudit;
+		return createdAudit;*/
 		
 		
 		
 	}
 
 }
-*/

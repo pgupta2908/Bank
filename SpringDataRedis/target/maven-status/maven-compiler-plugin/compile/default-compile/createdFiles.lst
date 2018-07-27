@@ -1,0 +1,6 @@
+com\javasampleapproach\redis\repo\CustomerRepository.class
+com\javasampleapproach\redis\model\Customer.class
+com\javasampleapproach\redis\SpringDataRedisApplication.class
+com\javasampleapproach\redis\config\RedisConfig.class
+com\javasampleapproach\redis\repo\CustomerRepositoryImpl.class
+com\javasampleapproach\redis\controller\WebController.class
